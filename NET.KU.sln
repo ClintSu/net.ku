@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NET.Start", "NET.Start\NET.Start.csproj", "{507DB4CB-9413-47A8-BBA8-5F59B18F6DE0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NET.Libraries", "NET.Libraries", "{BEA373DF-39E8-4895-A496-B584553F55E1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NET.Plugin", "NET.Plugin", "{F446B7A1-7837-4BC4-AAC6-8CE2FC2AD1C4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NET.Test", "NET.Test", "{BB7468C4-A774-42BA-9500-1412288188BB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NET.Communication", "NET.Communication\NET.Communication.csproj", "{2E7346A6-39B0-43BB-A455-966821B20341}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{507DB4CB-9413-47A8-BBA8-5F59B18F6DE0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{507DB4CB-9413-47A8-BBA8-5F59B18F6DE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{507DB4CB-9413-47A8-BBA8-5F59B18F6DE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{507DB4CB-9413-47A8-BBA8-5F59B18F6DE0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E7346A6-39B0-43BB-A455-966821B20341}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E7346A6-39B0-43BB-A455-966821B20341}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E7346A6-39B0-43BB-A455-966821B20341}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E7346A6-39B0-43BB-A455-966821B20341}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{507DB4CB-9413-47A8-BBA8-5F59B18F6DE0} = {BB7468C4-A774-42BA-9500-1412288188BB}
+		{2E7346A6-39B0-43BB-A455-966821B20341} = {BEA373DF-39E8-4895-A496-B584553F55E1}
+	EndGlobalSection
+EndGlobal

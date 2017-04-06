@@ -1,0 +1,1 @@
+D:\CSharp\NET.KU\NET.Start\bin\Debug\NET.Start.exe.config
