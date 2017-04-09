@@ -1,0 +1,5 @@
+E:\Proj\CSharp\NET.KU\NET.Security\bin\Debug\NET.Security.dll
+E:\Proj\CSharp\NET.KU\NET.Security\bin\Debug\NET.Security.pdb
+E:\Proj\CSharp\NET.KU\NET.Security\obj\Debug\NET.Security.csprojResolveAssemblyReference.cache
+E:\Proj\CSharp\NET.KU\NET.Security\obj\Debug\NET.Security.dll
+E:\Proj\CSharp\NET.KU\NET.Security\obj\Debug\NET.Security.pdb

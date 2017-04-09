@@ -53,6 +53,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -74,6 +77,20 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NET.Communication\NET.Communication.csproj">
+      <Project>{2e7346a6-39b0-43bb-a455-966821b20341}</Project>
+      <Name>NET.Communication</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NET.Security\NET.Security.csproj">
+      <Project>{31ee5a84-bf32-4626-a9ae-1760ecb469a9}</Project>
+      <Name>NET.Security</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NET.Utility\NET.Utility.csproj">
+      <Project>{1bdcd9aa-7007-4c31-b98e-4a7aef959eba}</Project>
+      <Name>NET.Utility</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

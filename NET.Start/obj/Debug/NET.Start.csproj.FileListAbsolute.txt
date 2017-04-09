@@ -1,1 +1,16 @@
 D:\CSharp\NET.KU\NET.Start\bin\Debug\NET.Start.exe.config
+E:\Proj\CSharp\NET.KU\NET.Start\bin\Debug\NET.Start.exe.config
+E:\Proj\CSharp\NET.KU\NET.Start\bin\Debug\NET.Start.exe
+E:\Proj\CSharp\NET.KU\NET.Start\bin\Debug\NET.Start.pdb
+E:\Proj\CSharp\NET.KU\NET.Start\obj\Debug\NET.Start.Properties.Resources.resources
+E:\Proj\CSharp\NET.KU\NET.Start\obj\Debug\NET.Start.csproj.GenerateResource.Cache
+E:\Proj\CSharp\NET.KU\NET.Start\obj\Debug\NET.Start.exe
+E:\Proj\CSharp\NET.KU\NET.Start\obj\Debug\NET.Start.pdb
+E:\Proj\CSharp\NET.KU\NET.Start\bin\Debug\NET.Communication.dll
+E:\Proj\CSharp\NET.KU\NET.Start\bin\Debug\NET.Security.dll
+E:\Proj\CSharp\NET.KU\NET.Start\bin\Debug\NET.Utility.dll
+E:\Proj\CSharp\NET.KU\NET.Start\bin\Debug\NET.Communication.pdb
+E:\Proj\CSharp\NET.KU\NET.Start\bin\Debug\NET.Security.pdb
+E:\Proj\CSharp\NET.KU\NET.Start\bin\Debug\NET.Utility.pdb
+E:\Proj\CSharp\NET.KU\NET.Start\obj\Debug\NET.Start.csprojResolveAssemblyReference.cache
+E:\Proj\CSharp\NET.KU\NET.Start\obj\Debug\NET.Start.Form1.resources

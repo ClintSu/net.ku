@@ -1,0 +1,5 @@
+E:\Proj\CSharp\NET.KU\NET.Communication\bin\Debug\NET.Communication.dll
+E:\Proj\CSharp\NET.KU\NET.Communication\bin\Debug\NET.Communication.pdb
+E:\Proj\CSharp\NET.KU\NET.Communication\obj\Debug\NET.Communication.csprojResolveAssemblyReference.cache
+E:\Proj\CSharp\NET.KU\NET.Communication\obj\Debug\NET.Communication.dll
+E:\Proj\CSharp\NET.KU\NET.Communication\obj\Debug\NET.Communication.pdb

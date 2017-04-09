@@ -1,0 +1,5 @@
+E:\Proj\CSharp\NET.KU\NET.Utility\bin\Debug\NET.Utility.dll
+E:\Proj\CSharp\NET.KU\NET.Utility\bin\Debug\NET.Utility.pdb
+E:\Proj\CSharp\NET.KU\NET.Utility\obj\Debug\NET.Utility.dll
+E:\Proj\CSharp\NET.KU\NET.Utility\obj\Debug\NET.Utility.pdb
+E:\Proj\CSharp\NET.KU\NET.Utility\obj\Debug\NET.Utility.csprojResolveAssemblyReference.cache
