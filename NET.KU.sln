@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26228.4
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NET.Start", "NET.Start\NET.Start.csproj", "{507DB4CB-9413-47A8-BBA8-5F59B18F6DE0}"
 EndProject
@@ -15,7 +15,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NET.Communication", "NET.Co
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NET.Security", "NET.Security\NET.Security.csproj", "{31EE5A84-BF32-4626-A9AE-1760ECB469A9}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NET.", "NET.", "{13F122C4-2CF8-4478-B9B9-CD8B2B4828DD}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NET.Tools", "NET.Tools", "{13F122C4-2CF8-4478-B9B9-CD8B2B4828DD}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NET.Utility", "NET.Utility\NET.Utility.csproj", "{1BDCD9AA-7007-4C31-B98E-4A7AEF959EBA}"
 EndProject
