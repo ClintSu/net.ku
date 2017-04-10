@@ -7,19 +7,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using NET.Security;
 
 namespace NET.Start
 {
-    public partial class Form1 : Form
+    public partial class TestForm : Form
     {
-        public Form1()
+        public TestForm()
         {
             InitializeComponent();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-           MessageBox.Show(NET.Utility.ChineseConverter.ToPinYin("小李子。"," "));
+          // MessageBox.Show(NET.Utility.ChineseConverter.ToPinYin("小李子。"," "));
+
+            string privateKey = string.Empty;
+            string publicKey = string.Empty;
+
+            NET.Security.Rsa rsa=new Rsa();
+            rsa.RsaKey(out privateKey,out publicKey);
         }
     }
 }

@@ -34,7 +34,7 @@ namespace NET.Security
         /// RSA加密
         /// </summary>
         /// <param name="xmlPublickKey">公钥</param>
-        /// <param name="content">加密内容</param>
+        /// <param name="content">加密内容(长度小于117)</param>
         /// <returns></returns>
         public string Encrypt(string xmlPublickKey, string content)
         {
