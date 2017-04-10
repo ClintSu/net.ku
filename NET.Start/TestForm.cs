@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using NET.Security;
+using NET.Utilities;
 
 namespace NET.Start
 {
@@ -20,12 +20,12 @@ namespace NET.Start
 
         private void button1_Click(object sender, EventArgs e)
         {
-          // MessageBox.Show(NET.Utility.ChineseConverter.ToPinYin("小李子。"," "));
+          // MessageBox.Show(NET.Utilities.ChineseConverter.ToPinYin("小李子。"," "));
 
             string privateKey = string.Empty;
             string publicKey = string.Empty;
 
-            NET.Security.Rsa rsa=new Rsa();
+            NET.Utilities.RsaSecurity rsa=new NET.Utilities.RsaSecurity();
             rsa.RsaKey(out privateKey,out publicKey);
         }
     }

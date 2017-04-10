@@ -16,10 +16,10 @@ namespace ComputerData
         public InfoForm()
         {
             InitializeComponent();
-            this.btnRead.Focus();
+            this.BtnRead.Focus();
         }
 
-        private void btnRead_Click(object sender, EventArgs e)
+        private void BtnRead_Click(object sender, EventArgs e)
         {
             var strInfo = string.Empty;
 
@@ -64,7 +64,7 @@ namespace ComputerData
             return BitConverter.ToString(hashmd5.ComputeHash(Encoding.Default.GetBytes(toCryString))).Replace("-", "").ToUpper();
         }
 
-        private void btnCopy_Click(object sender, EventArgs e)
+        private void BtnCopy_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(this.rtbInfo.Text)) return;
             Clipboard.SetDataObject(rtbInfo.Text);

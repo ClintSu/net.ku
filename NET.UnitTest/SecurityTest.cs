@@ -12,7 +12,7 @@ namespace NET.UnitTest
             string privateKey = string.Empty;
             string publicKey = string.Empty;
             string content = @"123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567";
-            NET.Security.Rsa rsa= new NET.Security.Rsa();
+            NET.Utilities.RsaSecurity rsa = new NET.Utilities.RsaSecurity();
             rsa.RsaKey(out privateKey,out publicKey); //生成密钥
             var encrypted = rsa.Encrypt(publicKey, content);  //值加密
             var decrypted = rsa.Decrypt(privateKey, encrypted); //值解密

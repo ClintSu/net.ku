@@ -59,13 +59,9 @@
       <Project>{2e7346a6-39b0-43bb-a455-966821b20341}</Project>
       <Name>NET.Communication</Name>
     </ProjectReference>
-    <ProjectReference Include="..\NET.Security\NET.Security.csproj">
-      <Project>{31ee5a84-bf32-4626-a9ae-1760ecb469a9}</Project>
-      <Name>NET.Security</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\NET.Utility\NET.Utility.csproj">
+    <ProjectReference Include="..\NET.Utility\NET.Utilities.csproj">
       <Project>{1bdcd9aa-7007-4c31-b98e-4a7aef959eba}</Project>
-      <Name>NET.Utility</Name>
+      <Name>NET.Utilities</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />

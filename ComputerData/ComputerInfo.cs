@@ -238,7 +238,7 @@ namespace ComputerData
                 }
                 return macs;
             }
-            catch (Exception ex)
+            catch
             {
 
             }
