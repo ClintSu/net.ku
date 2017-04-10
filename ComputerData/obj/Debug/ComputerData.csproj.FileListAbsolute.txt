@@ -1,0 +1,9 @@
+D:\CSharp\NET.KU\ComputerData\obj\Debug\ComputerData.InfoForm.resources
+D:\CSharp\NET.KU\ComputerData\obj\Debug\ComputerData.Properties.Resources.resources
+D:\CSharp\NET.KU\ComputerData\obj\Debug\ComputerData.csproj.GenerateResource.Cache
+D:\CSharp\NET.KU\ComputerData\bin\Debug\ComputerData.exe.config
+D:\CSharp\NET.KU\ComputerData\bin\Debug\ComputerData.exe
+D:\CSharp\NET.KU\ComputerData\bin\Debug\ComputerData.pdb
+D:\CSharp\NET.KU\ComputerData\obj\Debug\ComputerData.csprojResolveAssemblyReference.cache
+D:\CSharp\NET.KU\ComputerData\obj\Debug\ComputerData.exe
+D:\CSharp\NET.KU\ComputerData\obj\Debug\ComputerData.pdb
