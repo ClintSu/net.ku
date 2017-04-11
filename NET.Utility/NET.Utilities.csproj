@@ -66,6 +66,7 @@
     <Compile Include="FTP操作类\FTPOperater.cs" />
     <Compile Include="JSON操作\ConvertJson.cs" />
     <Compile Include="SQL操作\SqlHelper.cs" />
+    <Compile Include="时间戳\TimeHelper.cs" />
     <Compile Include="二维码操作类\QRcode.cs" />
     <Compile Include="加密解密\AesSecurity.cs" />
     <Compile Include="加密解密\DesSecurity.cs" />
