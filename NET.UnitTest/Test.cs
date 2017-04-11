@@ -10,9 +10,9 @@ namespace NET.UnitTest
     /// TimeHelperTest 的摘要说明
     /// </summary>
     [TestClass]
-    public class TimeHelperTest
+    public class Test
     {
-        public TimeHelperTest()
+        public Test()
         {
             //
             //TODO:  在此处添加构造函数逻辑
@@ -66,6 +66,15 @@ namespace NET.UnitTest
             var tt= TimeHelper.GetTimeStamp();
             var tTime = TimeHelper.ConvertDataTime(tt);
             //Assert.AreEqual(dt, tTime);
+        }
+
+
+        [TestMethod]
+        public void TestMethod2()
+        {
+            var tt1 = Utilities.Rand.Number(5);
+            var tt2 = Utilities.Rand.Str(5);
+            var tt3 = Utilities.Rand.Str_char(5); 
         }
     }
 }

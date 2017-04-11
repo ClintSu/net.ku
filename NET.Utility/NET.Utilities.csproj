@@ -47,6 +47,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -65,6 +66,8 @@
     <Compile Include="FTP操作类\FTPHelper.cs" />
     <Compile Include="FTP操作类\FTPOperater.cs" />
     <Compile Include="JSON操作\ConvertJson.cs" />
+    <Compile Include="注册表操作\ModifyRegistry.cs" />
+    <Compile Include="注册表操作\RegistryHelper.cs" />
     <Compile Include="SQL操作\SqlHelper.cs" />
     <Compile Include="时间戳\TimeHelper.cs" />
     <Compile Include="二维码操作类\QRcode.cs" />
