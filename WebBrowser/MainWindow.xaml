@@ -5,8 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WebBrowser"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="800" Width="1024">
     <Grid>
-        
+        <StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBox x:Name="AddressTextBox" Width="200" />
+                <Button Click="GoNavigateButton_Click">Go</Button>
+            </StackPanel>
+            <WebBrowser Margin="0,20,0,0" x:Name="MyWebBrowser" Height="700" Width="1024"/>
+        </StackPanel>
     </Grid>
 </Window>

@@ -23,5 +23,20 @@ namespace WebBrowser
         {
             InitializeComponent();
         }
+
+        private void GoNavigateButton_Click(object sender, RoutedEventArgs e)
+        {
+            Uri uri = new Uri(this.AddressTextBox.Text, UriKind.RelativeOrAbsolute);
+
+            // Only absolute URIs can be navigated to
+            if (!uri.IsAbsoluteUri)
+            {
+                MessageBox.Show("The Address URI must be absolute eg 'http://www.microsoft.com'");
+                return;
+            }
+
+            // Navigate to the desired URL by calling the .Navigate method
+            this.MyWebBrowser.Navigate(uri);
+        }
     }
 }
