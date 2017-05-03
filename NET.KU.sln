@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26403.0
+VisualStudioVersion = 15.0.26403.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NET.Start", "NET.Start\NET.Start.csproj", "{507DB4CB-9413-47A8-BBA8-5F59B18F6DE0}"
 EndProject
@@ -20,6 +20,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NET.UnitTest", "NET.UnitTest\NET.UnitTest.csproj", "{49666CFF-59E2-447C-AA69-8B78EDF167E2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ComputerData", "ComputerData\ComputerData.csproj", "{EE36C63B-F6D2-433D-8E93-B2CCDA16DC2C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebBrowser", "WebBrowser\WebBrowser.csproj", "{B8FB7A1D-F079-4F4E-A0EF-03E79E895D6D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,6 +49,10 @@ Global
 		{EE36C63B-F6D2-433D-8E93-B2CCDA16DC2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EE36C63B-F6D2-433D-8E93-B2CCDA16DC2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EE36C63B-F6D2-433D-8E93-B2CCDA16DC2C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8FB7A1D-F079-4F4E-A0EF-03E79E895D6D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8FB7A1D-F079-4F4E-A0EF-03E79E895D6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8FB7A1D-F079-4F4E-A0EF-03E79E895D6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8FB7A1D-F079-4F4E-A0EF-03E79E895D6D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -57,5 +63,6 @@ Global
 		{1BDCD9AA-7007-4C31-B98E-4A7AEF959EBA} = {BEA373DF-39E8-4895-A496-B584553F55E1}
 		{49666CFF-59E2-447C-AA69-8B78EDF167E2} = {BB7468C4-A774-42BA-9500-1412288188BB}
 		{EE36C63B-F6D2-433D-8E93-B2CCDA16DC2C} = {13F122C4-2CF8-4478-B9B9-CD8B2B4828DD}
+		{B8FB7A1D-F079-4F4E-A0EF-03E79E895D6D} = {F446B7A1-7837-4BC4-AAC6-8CE2FC2AD1C4}
 	EndGlobalSection
 EndGlobal
