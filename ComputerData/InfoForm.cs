@@ -33,8 +33,9 @@ namespace ComputerData
             strInfo += PadLeftEx("系统类型", 8, '.') + "|" + ComputerInfo.GetSystemType() + "\n";
             strInfo += PadLeftEx("物理内存", 8, '.') + "|" + ComputerInfo.GetTotalPhysicalMemory() + "\n";
             strInfo += PadLeftEx("Mac列表", 8, '.') + "|" + ComputerInfo.GetMacByNetworkInterface() + "\n";
-
-            var testMD5 = GetMD5Str(ComputerInfo.GetMacByNetworkInterface() + ComputerInfo.GetMotherBoardId());
+            strInfo += PadLeftEx("物理MAC", 8, '.') + "|" + ComputerInfo.GetPhysicsNetworkMac() + "\n";
+            
+            var testMD5 = GetMD5Str(ComputerInfo.GetPhysicsNetworkMac() + ComputerInfo.GetMotherBoardId());
 
             strInfo += @"Mac列表\主板的MD5:" + testMD5;
 

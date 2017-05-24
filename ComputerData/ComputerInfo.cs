@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Management;
 using System.Net;
@@ -235,13 +237,48 @@ namespace ComputerData
                     mac = ni.GetPhysicalAddress().ToString();
                     if (mac.Length == 12)
                         macs += (!string.IsNullOrEmpty(macs) ? "," : "") + mac;
+                       
                 }
-                return macs;
             }
             catch
             {
 
             }
+            return macs;
+        }
+
+        /// <summary>
+        /// 读取物理MAC
+        /// </summary>
+        /// <returns></returns>
+        public static string GetPhysicsNetworkMac()
+        {
+            string macs = "";
+            List<string> macList=new List<string>();
+            NetworkInterface[] fNetworkInterfaces = NetworkInterface.GetAllNetworkInterfaces();
+            foreach (NetworkInterface adapter in fNetworkInterfaces)
+            {
+                string fRegistryKey = "SYSTEM\\CurrentControlSet\\Control\\Network\\{4D36E972-E325-11CE-BFC1-08002BE10318}\\" + adapter.Id + "\\Connection";
+                RegistryKey rk = Registry.LocalMachine.OpenSubKey(fRegistryKey, false);
+                if (rk != null)
+                {
+                    // 区分 PnpInstanceID  
+                    // 如果前面有 PCI 就是本机的真实网卡 
+                    string fPnpInstanceID = rk.GetValue("PnpInstanceID", "").ToString();
+                    if (fPnpInstanceID.Length > 3 && fPnpInstanceID.Substring(0, 3) == "PCI")
+                    {
+                        //macs += adapter.GetPhysicalAddress().ToString();
+                        macList.Add(adapter.GetPhysicalAddress().ToString());
+                        //macs += (!string.IsNullOrEmpty(macs) ? "," : "") + mac;
+                     
+                    }
+                }
+            }
+            foreach (var mac in StringSort.Sort(macList))
+            {
+                macs += (!string.IsNullOrEmpty(macs) ? "," : "") + mac;
+            }
+
             return macs;
         }
     }

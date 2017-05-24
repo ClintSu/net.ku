@@ -43,7 +43,7 @@
             this.rtbInfo.Location = new System.Drawing.Point(5, 11);
             this.rtbInfo.Name = "rtbInfo";
             this.rtbInfo.ReadOnly = true;
-            this.rtbInfo.Size = new System.Drawing.Size(556, 219);
+            this.rtbInfo.Size = new System.Drawing.Size(583, 270);
             this.rtbInfo.TabIndex = 4;
             this.rtbInfo.Text = "";
             // 
@@ -74,16 +74,16 @@
             this.panel1.BackColor = System.Drawing.SystemColors.ControlLight;
             this.panel1.Controls.Add(this.BtnRead);
             this.panel1.Controls.Add(this.BtnCopy);
-            this.panel1.Location = new System.Drawing.Point(5, 233);
+            this.panel1.Location = new System.Drawing.Point(1, 287);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(556, 31);
+            this.panel1.Size = new System.Drawing.Size(587, 31);
             this.panel1.TabIndex = 5;
             // 
             // InfoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(568, 268);
+            this.ClientSize = new System.Drawing.Size(590, 319);
             this.Controls.Add(this.rtbInfo);
             this.Controls.Add(this.panel1);
             this.Name = "InfoForm";
