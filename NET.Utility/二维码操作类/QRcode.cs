@@ -7,6 +7,7 @@ using System.Text;
 using ThoughtWorks.QRCode.Codec;
 using ThoughtWorks.QRCode.Codec.Util;
 using System.Web;
+using ThoughtWorks.QRCode.Codec.Data;
 
 namespace NET.Utilities
 {
@@ -21,7 +22,7 @@ namespace NET.Utilities
         /// 例如  /abc/abc/
         /// </param>
         /// <returns>返回生成的二维码图片路径</returns>
-        public string Create(string str, int size, string path)
+        public static string Create(string str, int size, string path)
         {
             try
             {
@@ -100,6 +101,19 @@ namespace NET.Utilities
             {
                 return null;
             }
+        }
+
+        /// <summary>
+        /// 识别二维码(简)
+        /// </summary>
+        /// <param name="bitmap"></param>
+        /// <returns></returns>
+        public static string Read(Image image)
+        {
+            Bitmap bitmap= new Bitmap(image);
+            QRCodeDecoder decoder= new QRCodeDecoder();
+            QRCodeImage qcImage= new QRCodeBitmapImage(bitmap);
+            return decoder.decode(qcImage);
         }
     }
 }

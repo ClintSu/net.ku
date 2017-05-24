@@ -57,6 +57,9 @@
     <Reference Include="ThoughtWorks.QRCode, Version=1.0.4778.30637, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\ThoughtWorks.QRCode.1.1.0\lib\ThoughtWorks.QRCode.dll</HintPath>
     </Reference>
+    <Reference Include="zxing, Version=1.0.4727.18517, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ZXing.2.1.1\lib\net20\zxing.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Cookie&amp;Session\CookieHelper.cs" />
@@ -66,6 +69,7 @@
     <Compile Include="FTP操作类\FTPHelper.cs" />
     <Compile Include="FTP操作类\FTPOperater.cs" />
     <Compile Include="JSON操作\ConvertJson.cs" />
+    <Compile Include="二维码操作类\ZXingHelper.cs" />
     <Compile Include="注册表操作\ModifyRegistry.cs" />
     <Compile Include="注册表操作\RegistryHelper.cs" />
     <Compile Include="SQL操作\SqlHelper.cs" />
