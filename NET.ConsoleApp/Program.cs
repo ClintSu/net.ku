@@ -12,10 +12,20 @@ namespace NET.ConsoleApp
     {
         static void Main(string[] args)
         {
+            var netTime = NetTimeHelper.NetTime;
+
+            if (DateTime.Now.ToString("yyyy-mm-dd HH:mm") != netTime.ToString("yyyy-mm-dd HH:mm"))
+                LocalTimeSync.SyncTime(netTime);//同步服务器的时间 
+
             //ShowNetworkInterfaceMessage();
-            Console.WriteLine(GetPhysicsNetworkMac());
-            Console.ReadLine();
+            //Console.WriteLine(GetPhysicsNetworkMac());
+            //Console.ReadLine();
         }
+
+
+
+
+
 
         public static string GetPhysicsNetworkMac()
         {

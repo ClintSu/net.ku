@@ -36,9 +36,18 @@
     <Reference Include="Common.Logging.Core, Version=3.3.1.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
       <HintPath>..\packages\Common.Logging.Core.3.3.1\lib\net40\Common.Logging.Core.dll</HintPath>
     </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpZipLib.0.86.0\lib\20\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
     <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="Quartz, Version=2.5.0.0, Culture=neutral, PublicKeyToken=f6b8c98a402cc8a4, processorArchitecture=MSIL">
       <HintPath>..\packages\Quartz.2.5.0\lib\net40\Quartz.dll</HintPath>
     </Reference>
@@ -47,6 +56,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Windows" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -57,11 +67,47 @@
     <Reference Include="ThoughtWorks.QRCode, Version=1.0.4778.30637, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\ThoughtWorks.QRCode.1.1.0\lib\ThoughtWorks.QRCode.dll</HintPath>
     </Reference>
+    <Reference Include="WindowsBase" />
     <Reference Include="zxing, Version=1.0.4727.18517, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\ZXing.2.1.1\lib\net20\zxing.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Extension\ByteExtensions.cs" />
+    <Compile Include="Extension\DataRowExtensions.cs" />
+    <Compile Include="Extension\DataTableExtensions.cs" />
+    <Compile Include="Extension\DictionaryExtensions.cs" />
+    <Compile Include="Extension\DistinctExtensions.cs" />
+    <Compile Include="Extension\EnumerableExtensions.cs" />
+    <Compile Include="Extension\EnumExtensions.cs" />
+    <Compile Include="Extension\ExceptionExtensions.cs" />
+    <Compile Include="Extension\ExpressionExtensions.cs" />
+    <Compile Include="Extension\Extension.cs" />
+    <Compile Include="Extension\ListExtensions.cs" />
+    <Compile Include="Extension\ObjectExtensions.cs" />
+    <Compile Include="Extension\RandomExtensions.cs" />
+    <Compile Include="Extension\Set.cs" />
+    <Compile Include="Extension\StringExtensions.cs" />
+    <Compile Include="Extension\WhereIfExtensions.cs" />
+    <Compile Include="Image操作\ShellThumbnail.cs" />
+    <Compile Include="Image操作\SimilarImage.cs" />
+    <Compile Include="IO读写\IOFileInfo.cs" />
+    <Compile Include="IO读写\IOHelper.cs" />
+    <Compile Include="Recursion\Diagram\DiagramRecursionExtension.cs" />
+    <Compile Include="Recursion\Diagram\IDiagram.cs" />
+    <Compile Include="Recursion\Tree\ITree.cs" />
+    <Compile Include="Recursion\Tree\TreeRecursionExtension.cs" />
+    <Compile Include="XML操作\XMLHelper.cs" />
+    <Compile Include="二进制转换\BinaryHelper.cs" />
+    <Compile Include="桌面控制\Hooks\Hook.cs" />
+    <Compile Include="桌面控制\Hooks\HookProc.cs" />
+    <Compile Include="桌面控制\Hooks\HookType.cs" />
+    <Compile Include="桌面控制\Hooks\KBDLLHOOKSTRUCT.cs" />
+    <Compile Include="桌面控制\Hooks\MOUSEHOOKSTRUCT.cs" />
+    <Compile Include="桌面控制\Hooks\MsgType.cs" />
+    <Compile Include="桌面控制\Hooks\POINT.cs" />
+    <Compile Include="桌面控制\PasswordBoxHelper.cs" />
+    <Compile Include="桌面控制\CommonMethod.cs" />
     <Compile Include="Cookie&amp;Session\CookieHelper.cs" />
     <Compile Include="Cookie&amp;Session\SessionHelper.cs" />
     <Compile Include="Cookie&amp;Session\SessionHelper2.cs" />
@@ -69,6 +115,7 @@
     <Compile Include="FTP操作类\FTPHelper.cs" />
     <Compile Include="FTP操作类\FTPOperater.cs" />
     <Compile Include="JSON操作\ConvertJson.cs" />
+    <Compile Include="文件压缩\ZipHelper.cs" />
     <Compile Include="二维码操作类\ZXingHelper.cs" />
     <Compile Include="注册表操作\ModifyRegistry.cs" />
     <Compile Include="注册表操作\RegistryHelper.cs" />
@@ -80,15 +127,16 @@
     <Compile Include="加密解密\RsaSecurity.cs" />
     <Compile Include="缓存\DataCache.cs" />
     <Compile Include="网络\NetHelper.cs" />
+    <Compile Include="网络\NetTimeHelper.cs" />
     <Compile Include="计划任务\IntervalTask.cs" />
     <Compile Include="计划任务\Quartz.NET\Job.cs" />
     <Compile Include="计划任务\Quartz.NET\TestJob.cs" />
     <Compile Include="计划任务\TimerInfo.cs" />
     <Compile Include="配置文件操作\ConfigHelper.cs" />
     <Compile Include="日志\Log.cs" />
-    <Compile Include="图片\ImageClass.cs" />
-    <Compile Include="图片\ImageDown.cs" />
-    <Compile Include="图片\ImageUpload.cs" />
+    <Compile Include="Image操作\ImageClass.cs" />
+    <Compile Include="Image操作\ImageDown.cs" />
+    <Compile Include="Image操作\ImageUpload.cs" />
     <Compile Include="类型转换\Base64Provider.cs" />
     <Compile Include="缓存\CacheHelper.cs" />
     <Compile Include="汉字转拼音\ChineseConverter.cs" />
@@ -115,5 +163,6 @@
     <Content Include="计划任务\Quartz.NET\Qzuartz使用说明.txt" />
     <Content Include="计划任务\计划任务使用说明.txt" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

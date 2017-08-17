@@ -54,7 +54,6 @@ namespace NET.Utilities
             StackFrame frame;
             string str;
             string result;
-            bool flag;
             try
             {
                 int num = 2;
@@ -66,9 +65,8 @@ namespace NET.Utilities
                     num = num1 + 1;
                     frame = stackTrace.GetFrame(num1);
                     str = frame.GetMethod().DeclaringType.ToString();
-                    flag = (!str.EndsWith("Exception") ? false : num < length);
                 }
-                while (flag);
+                while (str.EndsWith("Exception") && num < length);
                 string name = frame.GetMethod().Name;
                 result = string.Concat(str, ".", name);
             }

@@ -365,7 +365,6 @@ namespace NET.Utilities
                                            (int)Gfmultby01(temp[2, c]) ^ (int)Gfmultby02(temp[3, c]));
             }
         }
-
         /// <summary>
         /// S盒字节代换(逆)
         /// </summary>

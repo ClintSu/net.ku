@@ -12,6 +12,10 @@ D:\CSharp\NET.KU\NET.Utility\bin\Debug\Common.Logging.Core.xml
 D:\CSharp\NET.KU\NET.Utility\bin\Debug\log4net.xml
 D:\CSharp\NET.KU\NET.Utility\bin\Debug\Quartz.pdb
 D:\CSharp\NET.KU\NET.Utility\bin\Debug\Quartz.xml
-D:\CSharp\NET.KU\NET.Utility\obj\Debug\NET.Utilities.csprojResolveAssemblyReference.cache
 D:\CSharp\NET.KU\NET.Utility\obj\Debug\NET.Utilities.dll
 D:\CSharp\NET.KU\NET.Utility\obj\Debug\NET.Utilities.pdb
+D:\CSharp\NET.KU\NET.Utility\bin\Debug\ICSharpCode.SharpZipLib.dll
+D:\CSharp\NET.KU\NET.Utility\bin\Debug\zxing.dll
+D:\CSharp\NET.KU\NET.Utility\bin\Debug\zxing.pdb
+D:\CSharp\NET.KU\NET.Utility\bin\Debug\Newtonsoft.Json.dll
+D:\CSharp\NET.KU\NET.Utility\bin\Debug\Newtonsoft.Json.xml

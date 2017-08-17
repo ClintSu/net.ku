@@ -29,3 +29,8 @@ D:\CSharp\NET.KU\NET.UnitTest\bin\Debug\Common.Logging.pdb
 D:\CSharp\NET.KU\NET.UnitTest\bin\Debug\Common.Logging.xml
 D:\CSharp\NET.KU\NET.UnitTest\bin\Debug\NET.Utilities.dll
 D:\CSharp\NET.KU\NET.UnitTest\bin\Debug\NET.Utilities.pdb
+D:\CSharp\NET.KU\NET.UnitTest\bin\Debug\ICSharpCode.SharpZipLib.dll
+D:\CSharp\NET.KU\NET.UnitTest\bin\Debug\zxing.dll
+D:\CSharp\NET.KU\NET.UnitTest\bin\Debug\Newtonsoft.Json.dll
+D:\CSharp\NET.KU\NET.UnitTest\bin\Debug\zxing.pdb
+D:\CSharp\NET.KU\NET.UnitTest\bin\Debug\Newtonsoft.Json.xml

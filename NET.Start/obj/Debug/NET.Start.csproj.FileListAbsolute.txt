@@ -38,3 +38,8 @@ D:\CSharp\NET.KU\NET.Start\bin\Debug\Common.Logging.pdb
 D:\CSharp\NET.KU\NET.Start\bin\Debug\Common.Logging.xml
 D:\CSharp\NET.KU\NET.Start\bin\Debug\NET.Utilities.dll
 D:\CSharp\NET.KU\NET.Start\bin\Debug\NET.Utilities.pdb
+D:\CSharp\NET.KU\NET.Start\bin\Debug\ICSharpCode.SharpZipLib.dll
+D:\CSharp\NET.KU\NET.Start\bin\Debug\zxing.dll
+D:\CSharp\NET.KU\NET.Start\bin\Debug\Newtonsoft.Json.dll
+D:\CSharp\NET.KU\NET.Start\bin\Debug\zxing.pdb
+D:\CSharp\NET.KU\NET.Start\bin\Debug\Newtonsoft.Json.xml
