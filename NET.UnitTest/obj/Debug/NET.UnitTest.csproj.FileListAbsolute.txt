@@ -34,3 +34,4 @@ D:\CSharp\NET.KU\NET.UnitTest\bin\Debug\zxing.dll
 D:\CSharp\NET.KU\NET.UnitTest\bin\Debug\Newtonsoft.Json.dll
 D:\CSharp\NET.KU\NET.UnitTest\bin\Debug\zxing.pdb
 D:\CSharp\NET.KU\NET.UnitTest\bin\Debug\Newtonsoft.Json.xml
+D:\CSharp\NET.KU\NET.UnitTest\obj\Debug\NET.UnitTest.csproj.CoreCompileInputs.cache

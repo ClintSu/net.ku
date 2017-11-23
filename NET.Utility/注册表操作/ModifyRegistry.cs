@@ -249,7 +249,7 @@ namespace NET.Utilities
 		private void ShowErrorMessage(Exception e, string Title)
 		{
 			if (showError == true)
-				MessageBox.Show(e.Message,
+				System.Windows.Forms.MessageBox.Show(e.Message,
 								Title
 								,MessageBoxButtons.OK
 								,MessageBoxIcon.Error);

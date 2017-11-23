@@ -19,3 +19,4 @@ D:\CSharp\NET.KU\NET.Utility\bin\Debug\zxing.dll
 D:\CSharp\NET.KU\NET.Utility\bin\Debug\zxing.pdb
 D:\CSharp\NET.KU\NET.Utility\bin\Debug\Newtonsoft.Json.dll
 D:\CSharp\NET.KU\NET.Utility\bin\Debug\Newtonsoft.Json.xml
+D:\CSharp\NET.KU\NET.Utility\obj\Debug\NET.Utilities.csproj.CoreCompileInputs.cache

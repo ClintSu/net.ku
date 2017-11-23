@@ -119,6 +119,73 @@ namespace NET.Utilities
             }
         }
 
+
+        /// <summary>
+        /// 获取Hash描述表
+        /// </summary>
+        /// <param name="filePath">待签名的文件</param>
+        /// <param name="strHashData">Hash描述</param>
+        /// <returns></returns>
+        public bool GetFileHash(string filePath, ref byte[] hashData)
+        {
+            try
+            { 
+                HashAlgorithm MD5 = HashAlgorithm.Create("MD5");
+                //Create a fileStream for the file.
+                FileStream fileStream = new FileStream(filePath, FileMode.Open);
+                // Be sure it's positioned to the beginning of the stream.
+                fileStream.Position = 0;
+                // Compute the hash of the fileStream.
+                hashData = MD5.ComputeHash(fileStream);
+                // Close the file.
+                fileStream.Close();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
+
+        /// <summary>
+        /// 获取Hash描述表
+        /// </summary>
+        /// <param name="filePath">待签名的文件</param>
+        /// <param name="strHashData">Hash描述</param>
+        /// <returns></returns>
+        public bool GetFileHash(string filePath,ref string strHashData)
+        {
+            try
+            {
+                HashAlgorithm MD5 = HashAlgorithm.Create("MD5");
+                byte[] hashValue;
+                // Create a fileStream for the file.
+                FileStream fileStream = new FileStream(filePath, FileMode.Open);
+                // Be sure it's positioned to the beginning of the stream.
+                fileStream.Position = 0;
+                // Compute the hash of the fileStream.
+                hashValue = MD5.ComputeHash(fileStream);
+                // Convert the hash to String
+                StringBuilder stringBuilder = new StringBuilder();
+                for (int i = 0; i < hashValue.Length; i++)
+                {
+                    //strHashData = strHashData + Convert.ToString(hashValue[i], 16);
+                    stringBuilder.Append(hashValue[i].ToString("x2"));
+                }
+                strHashData = stringBuilder.ToString().ToUpper();
+                // Close the file.
+                fileStream.Close();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
         /// <summary>
         /// 获取Hash描述表
         /// </summary>

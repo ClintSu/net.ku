@@ -63,8 +63,8 @@ namespace NET.UnitTest
         public void TestMethod1()
         {
             //DateTime dt = DateTime.Now;
-            var tt= TimeHelper.GetTimeStamp();
-            var tTime = TimeHelper.ConvertDataTime(tt);
+            var tt= TimeStampHelper.GetTimeStamp();
+            var tTime = TimeStampHelper.ConvertDataTime(tt);
             //Assert.AreEqual(dt, tTime);
         }
 

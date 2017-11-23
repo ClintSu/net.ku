@@ -7,5 +7,4 @@ D:\CSharp\NET.KU\ComputerData\bin\Debug\ComputerData.pdb
 D:\CSharp\NET.KU\ComputerData\obj\Debug\ComputerData.exe
 D:\CSharp\NET.KU\ComputerData\obj\Debug\ComputerData.pdb
 D:\CSharp\NET.KU\ComputerData\bin\Debug\System.Net.Http.dll
-D:\CSharp\NET.KU\ComputerData\bin\Debug\System.Net.Http.xml
-D:\CSharp\NET.KU\ComputerData\obj\Debug\ComputerData.csprojResolveAssemblyReference.cache
+D:\CSharp\NET.KU\ComputerData\obj\Debug\ComputerData.csproj.CoreCompileInputs.cache

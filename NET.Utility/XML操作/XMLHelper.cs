@@ -1,461 +1,260 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
+﻿ 
 using System.Xml;
+using System.Data;
 
 namespace NET.Utilities
 {
     /// <summary>
-    /// XMLHelper XML文档操作管理器
-    /// </summary>
-    public class XMLHelper
+    /// Xml的操作公共类
+    /// </summary>    
+    public class XmlHelper
     {
-        public XMLHelper()
-        {
-            //
-            // TODO: 在此处添加构造函数逻辑
-            //
-        }
-
-
-        #region XML文档节点查询和读取
+        #region 字段定义
         /// <summary>
-        /// 选择匹配XPath表达式的第一个节点XmlNode.
+        /// XML文件的物理路径
         /// </summary>
-        /// <param name="xmlFileName">XML文档完全文件名(包含物理路径)</param>
-        /// <param name="xpath">要匹配的XPath表达式(例如:"//节点名//子节点名")</param>
-        /// <returns>返回XmlNode</returns>
-        public static XmlNode GetXmlNodeByXpath(string xmlFileName, string xpath)
-        {
-            XmlDocument xmlDoc = new XmlDocument();
-            try
-            {
-                xmlDoc.Load(xmlFileName); //加载XML文档
-                XmlNode xmlNode = xmlDoc.SelectSingleNode(xpath);
-                return xmlNode;
-            }
-            catch (Exception ex)
-            {
-                return null;
-                //throw ex; //这里可以定义你自己的异常处理
-            }
-        }
-
+        private string _filePath = string.Empty;
         /// <summary>
-        /// 选择匹配XPath表达式的节点列表XmlNodeList.
+        /// Xml文档
         /// </summary>
-        /// <param name="xmlFileName">XML文档完全文件名(包含物理路径)</param>
-        /// <param name="xpath">要匹配的XPath表达式(例如:"//节点名//子节点名")</param>
-        /// <returns>返回XmlNodeList</returns>
-        public static XmlNodeList GetXmlNodeListByXpath(string xmlFileName, string xpath)
-        {
-            XmlDocument xmlDoc = new XmlDocument();
-
-            try
-            {
-                xmlDoc.Load(xmlFileName); //加载XML文档
-                XmlNodeList xmlNodeList = xmlDoc.SelectNodes(xpath);
-                return xmlNodeList;
-            }
-            catch (Exception ex)
-            {
-                return null;
-                //throw ex; //这里可以定义你自己的异常处理
-            }
-        }
-
+        private XmlDocument _xml;
         /// <summary>
-        /// 选择匹配XPath表达式的第一个节点的匹配xmlAttributeName的属性XmlAttribute.
+        /// XML的根节点
         /// </summary>
-        /// <param name="xmlFileName">XML文档完全文件名(包含物理路径)</param>
-        /// <param name="xpath">要匹配的XPath表达式(例如:"//节点名//子节点名</param>
-        /// <param name="xmlAttributeName">要匹配xmlAttributeName的属性名称</param>
-        /// <returns>返回xmlAttributeName</returns>
-        public static XmlAttribute GetXmlAttribute(string xmlFileName, string xpath, string xmlAttributeName)
+        private XmlElement _element;
+        #endregion
+
+        #region 构造方法
+        /// <summary>
+        /// 实例化XmlHelper对象
+        /// </summary>
+        /// <param name="xmlFilePath">Xml文件的相对路径</param>
+        public XmlHelper(string xmlFilePath)
         {
-            string content = string.Empty;
-            XmlDocument xmlDoc = new XmlDocument();
-            XmlAttribute xmlAttribute = null;
-            try
-            {
-                xmlDoc.Load(xmlFileName); //加载XML文档
-                XmlNode xmlNode = xmlDoc.SelectSingleNode(xpath);
-                if (xmlNode != null)
-                {
-                    if (xmlNode.Attributes.Count > 0)
-                    {
-                        xmlAttribute = xmlNode.Attributes[xmlAttributeName];
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                throw ex; //这里可以定义你自己的异常处理
-            }
-            return xmlAttribute;
+            //获取XML文件的绝对路径
+            _filePath = System.Web.HttpContext.Current.Server.MapPath(xmlFilePath);
         }
         #endregion
 
-        #region XML文档创建和节点或属性的添加、修改
+        #region 创建XML的根节点
         /// <summary>
-        /// 创建一个XML文档
+        /// 创建XML的根节点
         /// </summary>
-        /// <param name="xmlFileName">XML文档完全文件名(包含物理路径)</param>
-        /// <param name="rootNodeName">XML文档根节点名称(须指定一个根节点名称)</param>
-        /// <param name="version">XML文档版本号(必须为:"1.0")</param>
-        /// <param name="encoding">XML文档编码方式</param>
-        /// <param name="standalone">该值必须是"yes"或"no",如果为null,Save方法不在XML声明上写出独立属性</param>
-        /// <returns>成功返回true,失败返回false</returns>
-        public static bool CreateXmlDocument(string xmlFileName, string rootNodeName, string version, string encoding, string standalone)
+        private void CreateXMLElement()
         {
-            bool isSuccess = false;
-            try
-            {
-                XmlDocument xmlDoc = new XmlDocument();
-                XmlDeclaration xmlDeclaration = xmlDoc.CreateXmlDeclaration(version, encoding, standalone);
-                XmlNode root = xmlDoc.CreateElement(rootNodeName);
-                xmlDoc.AppendChild(xmlDeclaration);
-                xmlDoc.AppendChild(root);
-                xmlDoc.Save(xmlFileName);
-                isSuccess = true;
-            }
-            catch (Exception ex)
-            {
-                throw ex; //这里可以定义你自己的异常处理
-            }
-            return isSuccess;
-        }
 
-        /// <summary>
-        /// 依据匹配XPath表达式的第一个节点来创建它的子节点(如果此节点已存在则追加一个新的同名节点
-        /// </summary>
-        /// <param name="xmlFileName">XML文档完全文件名(包含物理路径)</param>
-        /// <param name="xpath">要匹配的XPath表达式(例如:"//节点名//子节点名</param>
-        /// <param name="xmlNodeName">要匹配xmlNodeName的节点名称</param>
-        /// <param name="innerText">节点文本值</param>
-        /// <param name="xmlAttributeName">要匹配xmlAttributeName的属性名称</param>
-        /// <param name="value">属性值</param>
-        /// <returns>成功返回true,失败返回false</returns>
-        public static bool CreateXmlNodeByXPath(string xmlFileName, string xpath, string xmlNodeName, string innerText, string xmlAttributeName, string value)
-        {
-            bool isSuccess = false;
-            XmlDocument xmlDoc = new XmlDocument();
-            try
-            {
-                xmlDoc.Load(xmlFileName); //加载XML文档
-                XmlNode xmlNode = xmlDoc.SelectSingleNode(xpath);
-                if (xmlNode != null)
-                {
-                    //存不存在此节点都创建
-                    XmlElement subElement = xmlDoc.CreateElement(xmlNodeName);
-                    subElement.InnerXml = innerText;
+            //创建一个XML对象
+            _xml = new XmlDocument();
 
-                    //如果属性和值参数都不为空则在此新节点上新增属性
-                    if (!string.IsNullOrEmpty(xmlAttributeName) && !string.IsNullOrEmpty(value))
-                    {
-                        XmlAttribute xmlAttribute = xmlDoc.CreateAttribute(xmlAttributeName);
-                        xmlAttribute.Value = value;
-                        subElement.Attributes.Append(xmlAttribute);
-                    }
+            if (System.IO.File.Exists(_filePath))
+            {
+                //加载XML文件
+                _xml.Load(this._filePath);
+            }
 
-                    xmlNode.AppendChild(subElement);
-                }
-                xmlDoc.Save(xmlFileName); //保存到XML文档
-                isSuccess = true;
-            }
-            catch (Exception ex)
-            {
-                throw ex; //这里可以定义你自己的异常处理
-            }
-            return isSuccess;
-        }
-
-        /// <summary>
-        /// 依据匹配XPath表达式的第一个节点来创建或更新它的子节点(如果节点存在则更新,不存在则创建)
-        /// </summary>
-        /// <param name="xmlFileName">XML文档完全文件名(包含物理路径)</param>
-        /// <param name="xpath">要匹配的XPath表达式(例如:"//节点名//子节点名</param>
-        /// <param name="xmlNodeName">要匹配xmlNodeName的节点名称</param>
-        /// <param name="innerText">节点文本值</param>
-        /// <returns>成功返回true,失败返回false</returns>
-        public static bool CreateOrUpdateXmlNodeByXPath(string xmlFileName, string xpath, string xmlNodeName, string innerText)
-        {
-            bool isSuccess = false;
-            bool isExistsNode = false;//标识节点是否存在
-            XmlDocument xmlDoc = new XmlDocument();
-            try
-            {
-                xmlDoc.Load(xmlFileName); //加载XML文档
-                XmlNode xmlNode = xmlDoc.SelectSingleNode(xpath);
-                if (xmlNode != null)
-                {
-                    //遍历xpath节点下的所有子节点
-                    foreach (XmlNode node in xmlNode.ChildNodes)
-                    {
-                        if (node.Name.ToLower() == xmlNodeName.ToLower())
-                        {
-                            //存在此节点则更新
-                            node.InnerXml = innerText;
-                            isExistsNode = true;
-                            break;
-                        }
-                    }
-                    if (!isExistsNode)
-                    {
-                        //不存在此节点则创建
-                        XmlElement subElement = xmlDoc.CreateElement(xmlNodeName);
-                        subElement.InnerXml = innerText;
-                        xmlNode.AppendChild(subElement);
-                    }
-                }
-                xmlDoc.Save(xmlFileName); //保存到XML文档
-                isSuccess = true;
-            }
-            catch (Exception ex)
-            {
-                throw ex; //这里可以定义你自己的异常处理
-            }
-            return isSuccess;
-        }
-
-        /// <summary>
-        /// 依据匹配XPath表达式的第一个节点来创建或更新它的属性(如果属性存在则更新,不存在则创建)
-        /// </summary>
-        /// <param name="xmlFileName">XML文档完全文件名(包含物理路径)</param>
-        /// <param name="xpath">要匹配的XPath表达式(例如:"//节点名//子节点名</param>
-        /// <param name="xmlAttributeName">要匹配xmlAttributeName的属性名称</param>
-        /// <param name="value">属性值</param>
-        /// <returns>成功返回true,失败返回false</returns>
-        public static bool CreateOrUpdateXmlAttributeByXPath(string xmlFileName, string xpath, string xmlAttributeName, string value)
-        {
-            bool isSuccess = false;
-            bool isExistsAttribute = false;//标识属性是否存在
-            XmlDocument xmlDoc = new XmlDocument();
-            try
-            {
-                xmlDoc.Load(xmlFileName); //加载XML文档
-                XmlNode xmlNode = xmlDoc.SelectSingleNode(xpath);
-                if (xmlNode != null)
-                {
-                    //遍历xpath节点中的所有属性
-                    foreach (XmlAttribute attribute in xmlNode.Attributes)
-                    {
-                        if (attribute.Name.ToLower() == xmlAttributeName.ToLower())
-                        {
-                            //节点中存在此属性则更新
-                            attribute.Value = value;
-                            isExistsAttribute = true;
-                            break;
-                        }
-                    }
-                    if (!isExistsAttribute)
-                    {
-                        //节点中不存在此属性则创建
-                        XmlAttribute xmlAttribute = xmlDoc.CreateAttribute(xmlAttributeName);
-                        xmlAttribute.Value = value;
-                        xmlNode.Attributes.Append(xmlAttribute);
-                    }
-                }
-                xmlDoc.Save(xmlFileName); //保存到XML文档
-                isSuccess = true;
-            }
-            catch (Exception ex)
-            {
-                throw ex; //这里可以定义你自己的异常处理
-            }
-            return isSuccess;
+            //为XML的根节点赋值
+            _element = _xml.DocumentElement;
         }
         #endregion
 
-        #region XML文档节点或属性的删除
+        #region 获取指定XPath表达式的节点对象
         /// <summary>
-        /// 删除匹配XPath表达式的第一个节点(节点中的子元素同时会被删除)
-        /// </summary>
-        /// <param name="xmlFileName">XML文档完全文件名(包含物理路径)</param>
-        /// <param name="xpath">要匹配的XPath表达式(例如:"//节点名//子节点名</param>
-        /// <returns>成功返回true,失败返回false</returns>
-        public static bool DeleteXmlNodeByXPath(string xmlFileName, string xpath)
+        /// 获取指定XPath表达式的节点对象
+        /// </summary>        
+        /// <param name="xPath">XPath表达式,
+        /// 范例1: @"Skill/First/SkillItem", 等效于 @"//Skill/First/SkillItem"
+        /// 范例2: @"Table[USERNAME='a']" , []表示筛选,USERNAME是Table下的一个子节点.
+        /// 范例3: @"ApplyPost/Item[@itemName='岗位编号']",@itemName是Item节点的属性.
+        /// </param>
+        public XmlNode GetNode(string xPath)
         {
-            bool isSuccess = false;
-            XmlDocument xmlDoc = new XmlDocument();
-            try
-            {
-                xmlDoc.Load(xmlFileName); //加载XML文档
-                XmlNode xmlNode = xmlDoc.SelectSingleNode(xpath);
-                if (xmlNode != null)
-                {
-                    //删除节点
-                    xmlNode.ParentNode.RemoveChild(xmlNode);
-                }
-                xmlDoc.Save(xmlFileName); //保存到XML文档
-                isSuccess = true;
-            }
-            catch (Exception ex)
-            {
-                throw ex; //这里可以定义你自己的异常处理
-            }
-            return isSuccess;
-        }
+            //创建XML的根节点
+            CreateXMLElement();
 
-        /// <summary>
-        /// 删除匹配XPath表达式的第一个节点中的匹配参数xmlAttributeName的属性
-        /// </summary>
-        /// <param name="xmlFileName">XML文档完全文件名(包含物理路径)</param>
-        /// <param name="xpath">要匹配的XPath表达式(例如:"//节点名//子节点名</param>
-        /// <param name="xmlAttributeName">要删除的xmlAttributeName的属性名称</param>
-        /// <returns>成功返回true,失败返回false</returns>
-        public static bool DeleteXmlAttributeByXPath(string xmlFileName, string xpath, string xmlAttributeName)
-        {
-            bool isSuccess = false;
-            bool isExistsAttribute = false;
-            XmlDocument xmlDoc = new XmlDocument();
-            try
-            {
-                xmlDoc.Load(xmlFileName); //加载XML文档
-                XmlNode xmlNode = xmlDoc.SelectSingleNode(xpath);
-                XmlAttribute xmlAttribute = null;
-                if (xmlNode != null)
-                {
-                    //遍历xpath节点中的所有属性
-                    foreach (XmlAttribute attribute in xmlNode.Attributes)
-                    {
-                        if (attribute.Name.ToLower() == xmlAttributeName.ToLower())
-                        {
-                            //节点中存在此属性
-                            xmlAttribute = attribute;
-                            isExistsAttribute = true;
-                            break;
-                        }
-                    }
-                    if (isExistsAttribute)
-                    {
-                        //删除节点中的属性
-                        xmlNode.Attributes.Remove(xmlAttribute);
-                    }
-                }
-                xmlDoc.Save(xmlFileName); //保存到XML文档
-                isSuccess = true;
-            }
-            catch (Exception ex)
-            {
-                throw ex; //这里可以定义你自己的异常处理
-            }
-            return isSuccess;
-        }
-
-        /// <summary>
-        /// 删除匹配XPath表达式的第一个节点中的所有属性
-        /// </summary>
-        /// <param name="xmlFileName">XML文档完全文件名(包含物理路径)</param>
-        /// <param name="xpath">要匹配的XPath表达式(例如:"//节点名//子节点名</param>
-        /// <returns>成功返回true,失败返回false</returns>
-        public static bool DeleteAllXmlAttributeByXPath(string xmlFileName, string xpath)
-        {
-            bool isSuccess = false;
-            XmlDocument xmlDoc = new XmlDocument();
-            try
-            {
-                xmlDoc.Load(xmlFileName); //加载XML文档
-                XmlNode xmlNode = xmlDoc.SelectSingleNode(xpath);
-                if (xmlNode != null)
-                {
-                    //遍历xpath节点中的所有属性
-                    xmlNode.Attributes.RemoveAll();
-                }
-                xmlDoc.Save(xmlFileName); //保存到XML文档
-                isSuccess = true;
-            }
-            catch (Exception ex)
-            {
-                throw ex; //这里可以定义你自己的异常处理
-            }
-            return isSuccess;
+            //返回XPath节点
+            return _element.SelectSingleNode(xPath);
         }
         #endregion
 
-        #region XML和实体类
-
+        #region 获取指定XPath表达式节点的值
         /// <summary>
-        /// 实体类序列化成xml
+        /// 获取指定XPath表达式节点的值
         /// </summary>
-        /// <param name="enitities">实体.</param>
-        /// <param name="headtag">节点名称</param>
-        /// <returns></returns>
-        public static string ObjListToXml<T>(List<T> enitities, string headtag)
+        /// <param name="xPath">XPath表达式,
+        /// 范例1: @"Skill/First/SkillItem", 等效于 @"//Skill/First/SkillItem"
+        /// 范例2: @"Table[USERNAME='a']" , []表示筛选,USERNAME是Table下的一个子节点.
+        /// 范例3: @"ApplyPost/Item[@itemName='岗位编号']",@itemName是Item节点的属性.
+        /// </param>
+        public string GetValue(string xPath)
         {
-            StringBuilder sb = new StringBuilder();
-            PropertyInfo[] propinfos = null;
-            sb.AppendLine("<?xml version=\"1.0\" encoding=\"utf - 8\"?>");
-            sb.AppendLine("<" + headtag + ">");
-            foreach (T obj in enitities)
-            {
-                //初始化propertyinfo
-                if (propinfos == null)
-                {
-                    Type objtype = obj.GetType();
-                    propinfos = objtype.GetProperties();
-                }
-                sb.AppendLine("<item>");
-                foreach (PropertyInfo propinfo in propinfos)
-                {
-                    sb.Append("<");
-                    sb.Append(propinfo.Name);
-                    sb.Append(">");
-                    sb.Append(propinfo.GetValue(obj, null));
-                    sb.Append("</");
-                    sb.Append(propinfo.Name);
-                    sb.AppendLine(">");
-                }
-                sb.AppendLine("</item>");
-            }
-            sb.AppendLine("</" + headtag + ">");
-            return sb.ToString();
-        }
-        /// <summary>
-        /// xml文件转化为实体类列表
-        /// </summary>
-        /// <typeparam name="T">实体名称</typeparam>
-        /// <param name="xml">您的xml文件</param>
-        /// <param name="headtag">xml头文件</param>
-        /// <returns>实体列表</returns>
-        public static List<T> XmlToObjList<T>(string xml, string headtag)
-            where T : new()
-        {
+            //创建XML的根节点
+            CreateXMLElement();
 
-            List<T> list = new List<T>();
-            XmlDocument doc = new XmlDocument();
-            PropertyInfo[] propinfos = null;
-            doc.LoadXml(xml);
-            //XmlNodeList nodelist = doc.SelectNodes(headtag);
-            XmlNodeList nodelist = doc.GetElementsByTagName(headtag);
-            foreach (XmlNode node in nodelist)
-            {
-                T entity = new T();
-                //初始化propertyinfo
-                if (propinfos == null)
-                {
-                    Type objtype = entity.GetType();
-                    propinfos = objtype.GetProperties();
-                }
-                //填充entity类的属性
-                foreach (PropertyInfo propinfo in propinfos)
-                {
-                    //实体类字段首字母变成小写的
-                    string name = propinfo.Name.Substring(0, 1) + propinfo.Name.Substring(1, propinfo.Name.Length - 1);
-                    XmlNode cnode = node.SelectSingleNode(name);
-                    string v = cnode.InnerText;
-                    if (v != null)
-                        propinfo.SetValue(entity, Convert.ChangeType(v, propinfo.PropertyType), null);
-                }
-                list.Add(entity);
-
-            }
-            return list;
-
+            //返回XPath节点的值
+            return _element.SelectSingleNode(xPath).InnerText;
         }
         #endregion
+
+        #region 获取指定XPath表达式节点的属性值
+        /// <summary>
+        /// 获取指定XPath表达式节点的属性值
+        /// </summary>
+        /// <param name="xPath">XPath表达式,
+        /// 范例1: @"Skill/First/SkillItem", 等效于 @"//Skill/First/SkillItem"
+        /// 范例2: @"Table[USERNAME='a']" , []表示筛选,USERNAME是Table下的一个子节点.
+        /// 范例3: @"ApplyPost/Item[@itemName='岗位编号']",@itemName是Item节点的属性.
+        /// </param>
+        /// <param name="attributeName">属性名</param>
+        public string GetAttributeValue(string xPath, string attributeName)
+        {
+            //创建XML的根节点
+            CreateXMLElement();
+
+            //返回XPath节点的属性值
+            return _element.SelectSingleNode(xPath).Attributes[attributeName].Value;
+        }
+        #endregion
+
+        #region 新增节点
+        /// <summary>
+        /// 1. 功能：新增节点。
+        /// 2. 使用条件：将任意节点插入到当前Xml文件中。
+        /// </summary>        
+        /// <param name="xmlNode">要插入的Xml节点</param>
+        public void AppendNode(XmlNode xmlNode)
+        {
+            //创建XML的根节点
+            CreateXMLElement();
+
+            //导入节点
+            XmlNode node = _xml.ImportNode(xmlNode, true);
+
+            //将节点插入到根节点下
+            _element.AppendChild(node);
+        }
+
+        /// <summary>
+        /// 1. 功能：新增节点。
+        /// 2. 使用条件：将DataSet中的第一条记录插入Xml文件中。
+        /// </summary>        
+        /// <param name="ds">DataSet的实例，该DataSet中应该只有一条记录</param>
+        public void AppendNode(DataSet ds)
+        {
+            //创建XmlDataDocument对象
+            XmlDataDocument xmlDataDocument = new XmlDataDocument(ds);
+
+            //导入节点
+            XmlNode node = xmlDataDocument.DocumentElement.FirstChild;
+
+            //将节点插入到根节点下
+            AppendNode(node);
+        }
+        #endregion
+
+        #region 删除节点
+        /// <summary>
+        /// 删除指定XPath表达式的节点
+        /// </summary>        
+        /// <param name="xPath">XPath表达式,
+        /// 范例1: @"Skill/First/SkillItem", 等效于 @"//Skill/First/SkillItem"
+        /// 范例2: @"Table[USERNAME='a']" , []表示筛选,USERNAME是Table下的一个子节点.
+        /// 范例3: @"ApplyPost/Item[@itemName='岗位编号']",@itemName是Item节点的属性.
+        /// </param>
+        public void RemoveNode(string xPath)
+        {
+            //创建XML的根节点
+            CreateXMLElement();
+
+            //获取要删除的节点
+            XmlNode node = _xml.SelectSingleNode(xPath);
+
+            //删除节点
+            _element.RemoveChild(node);
+        }
+        #endregion //删除节点
+
+        #region 保存XML文件
+        /// <summary>
+        /// 保存XML文件
+        /// </summary>        
+        public void Save()
+        {
+            //创建XML的根节点
+            CreateXMLElement();
+
+            //保存XML文件
+            _xml.Save(this._filePath);
+        }
+        #endregion //保存XML文件
+
+        #region 静态方法
+
+        #region 创建根节点对象
+        /// <summary>
+        /// 创建根节点对象
+        /// </summary>
+        /// <param name="xmlFilePath">Xml文件的相对路径</param>        
+        private static XmlElement CreateRootElement(string xmlFilePath)
+        {
+            //定义变量，表示XML文件的绝对路径
+            string filePath = "";
+
+            //获取XML文件的绝对路径
+            filePath = System.Web.HttpContext.Current.Server.MapPath(xmlFilePath);
+
+            //创建XmlDocument对象
+            XmlDocument xmlDocument = new XmlDocument();
+            //加载XML文件
+            xmlDocument.Load(filePath);
+
+            //返回根节点
+            return xmlDocument.DocumentElement;
+        }
+        #endregion
+
+        #region 获取指定XPath表达式节点的值
+        /// <summary>
+        /// 获取指定XPath表达式节点的值
+        /// </summary>
+        /// <param name="xmlFilePath">Xml文件的相对路径</param>
+        /// <param name="xPath">XPath表达式,
+        /// 范例1: @"Skill/First/SkillItem", 等效于 @"//Skill/First/SkillItem"
+        /// 范例2: @"Table[USERNAME='a']" , []表示筛选,USERNAME是Table下的一个子节点.
+        /// 范例3: @"ApplyPost/Item[@itemName='岗位编号']",@itemName是Item节点的属性.
+        /// </param>
+        public static string GetValue(string xmlFilePath, string xPath)
+        {
+            //创建根对象
+            XmlElement rootElement = CreateRootElement(xmlFilePath);
+
+            //返回XPath节点的值
+            return rootElement.SelectSingleNode(xPath).InnerText;
+        }
+        #endregion
+
+        #region 获取指定XPath表达式节点的属性值
+        /// <summary>
+        /// 获取指定XPath表达式节点的属性值
+        /// </summary>
+        /// <param name="xmlFilePath">Xml文件的相对路径</param>
+        /// <param name="xPath">XPath表达式,
+        /// 范例1: @"Skill/First/SkillItem", 等效于 @"//Skill/First/SkillItem"
+        /// 范例2: @"Table[USERNAME='a']" , []表示筛选,USERNAME是Table下的一个子节点.
+        /// 范例3: @"ApplyPost/Item[@itemName='岗位编号']",@itemName是Item节点的属性.
+        /// </param>
+        /// <param name="attributeName">属性名</param>
+        public static string GetAttributeValue(string xmlFilePath, string xPath, string attributeName)
+        {
+            //创建根对象
+            XmlElement rootElement = CreateRootElement(xmlFilePath);
+
+            //返回XPath节点的属性值
+            return rootElement.SelectSingleNode(xPath).Attributes[attributeName].Value;
+        }
+        #endregion
+
+        #endregion
+
+
     }
 }

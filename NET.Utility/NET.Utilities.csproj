@@ -73,6 +73,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CSV文件转换\CsvHelper.cs" />
     <Compile Include="Extension\ByteExtensions.cs" />
     <Compile Include="Extension\DataRowExtensions.cs" />
     <Compile Include="Extension\DataTableExtensions.cs" />
@@ -89,16 +90,37 @@
     <Compile Include="Extension\Set.cs" />
     <Compile Include="Extension\StringExtensions.cs" />
     <Compile Include="Extension\WhereIfExtensions.cs" />
-    <Compile Include="Image操作\ShellThumbnail.cs" />
-    <Compile Include="Image操作\SimilarImage.cs" />
+    <Compile Include="Html操作类\HtmlHelper.cs" />
+    <Compile Include="Html操作类\JavaScriptHelper.cs" />
+    <Compile Include="图片操作\ShellThumbnail.cs" />
+    <Compile Include="图片操作\SimilarImage.cs" />
+    <Compile Include="INI文件读写类\INIFile.cs" />
     <Compile Include="IO读写\IOFileInfo.cs" />
     <Compile Include="IO读写\IOHelper.cs" />
+    <Compile Include="Net\IpHelper.cs" />
+    <Compile Include="Net\NetHelper.cs" />
+    <Compile Include="Net\UrlOper.cs" />
+    <Compile Include="Net\WebClientHelper.cs" />
+    <Compile Include="Net\WebSitePathHelper.cs" />
     <Compile Include="Recursion\Diagram\DiagramRecursionExtension.cs" />
     <Compile Include="Recursion\Diagram\IDiagram.cs" />
     <Compile Include="Recursion\Tree\ITree.cs" />
     <Compile Include="Recursion\Tree\TreeRecursionExtension.cs" />
+    <Compile Include="cmd\RunCmd.cs" />
     <Compile Include="XML操作\XMLHelper.cs" />
+    <Compile Include="XML操作\XMLProcess.cs" />
     <Compile Include="二进制转换\BinaryHelper.cs" />
+    <Compile Include="加密解密\MySecurity.cs" />
+    <Compile Include="各种验证帮助类\ValidatorHelper.cs" />
+    <Compile Include="处理枚举类\RenumDropList.cs" />
+    <Compile Include="对象转换处理\ObjectConversion.cs" />
+    <Compile Include="异步线程\ManagedThreadPool.cs" />
+    <Compile Include="弹出消息类\MessageBox.cs" />
+    <Compile Include="弹出消息类\ShowMessage.cs" />
+    <Compile Include="日历\CNDate.cs" />
+    <Compile Include="时间操作类\DateFormat.cs" />
+    <Compile Include="时间操作类\TimeHelper.cs" />
+    <Compile Include="时间操作类\TimeParser.cs" />
     <Compile Include="桌面控制\Hooks\Hook.cs" />
     <Compile Include="桌面控制\Hooks\HookProc.cs" />
     <Compile Include="桌面控制\Hooks\HookType.cs" />
@@ -117,35 +139,38 @@
     <Compile Include="JSON操作\ConvertJson.cs" />
     <Compile Include="文件压缩\ZipHelper.cs" />
     <Compile Include="二维码操作类\ZXingHelper.cs" />
+    <Compile Include="汉字转拼音\EcanConvertToCh.cs" />
+    <Compile Include="汉字转拼音\PinYin.cs" />
     <Compile Include="注册表操作\ModifyRegistry.cs" />
     <Compile Include="注册表操作\RegistryHelper.cs" />
     <Compile Include="SQL操作\SqlHelper.cs" />
-    <Compile Include="时间戳\TimeHelper.cs" />
+    <Compile Include="时间戳\TimeStampHelper.cs" />
     <Compile Include="二维码操作类\QRcode.cs" />
     <Compile Include="加密解密\AesSecurity.cs" />
     <Compile Include="加密解密\DesSecurity.cs" />
     <Compile Include="加密解密\RsaSecurity.cs" />
+    <Compile Include="类型转换\ConvertHelper.cs" />
     <Compile Include="缓存\DataCache.cs" />
-    <Compile Include="网络\NetHelper.cs" />
-    <Compile Include="网络\NetTimeHelper.cs" />
+    <Compile Include="Net\NetTimeHelper.cs" />
+    <Compile Include="视频转换类\VideoConvert.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="计划任务\IntervalTask.cs" />
     <Compile Include="计划任务\Quartz.NET\Job.cs" />
     <Compile Include="计划任务\Quartz.NET\TestJob.cs" />
     <Compile Include="计划任务\TimerInfo.cs" />
     <Compile Include="配置文件操作\ConfigHelper.cs" />
     <Compile Include="日志\Log.cs" />
-    <Compile Include="Image操作\ImageClass.cs" />
-    <Compile Include="Image操作\ImageDown.cs" />
-    <Compile Include="Image操作\ImageUpload.cs" />
+    <Compile Include="图片操作\ImageClass.cs" />
+    <Compile Include="图片操作\ImageDown.cs" />
+    <Compile Include="图片操作\ImageUpload.cs" />
     <Compile Include="类型转换\Base64Provider.cs" />
     <Compile Include="缓存\CacheHelper.cs" />
     <Compile Include="汉字转拼音\ChineseConverter.cs" />
     <Compile Include="汉字转拼音\ChineseStyle.cs" />
-    <Compile Include="类型转换\ConvertHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="类型转换\SafeConvert.cs" />
     <Compile Include="单例模式\Singleton.cs" />
-    <Compile Include="验证数据\VerifyData.cs" />
     <Compile Include="验证码\YZMHelper.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -158,6 +183,9 @@
   <ItemGroup>
     <Content Include="FTP操作类\edtFTPnet.dll" />
     <Content Include="FTP操作类\FTP使用说明.txt" />
+    <Content Include="Javascript\CheckFunction.js" />
+    <Content Include="Javascript\CommonJS.js" />
+    <Content Include="异步线程\线程使用说明.txt" />
     <Content Include="日志\日志使用说明.txt" />
     <Content Include="计划任务\Quartz.NET\quartz_jobs.xml" />
     <Content Include="计划任务\Quartz.NET\Qzuartz使用说明.txt" />

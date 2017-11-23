@@ -1,7 +1,4 @@
-﻿/*
- 源码己托管:http://git.oschina.net/kuiyu/dotnetcodes
- */
-using System;
+﻿using System;
 using System.Text;
 using System.Net.Sockets;
 using System.Net.Mail;
@@ -409,9 +406,9 @@ namespace NET.Utilities
         /// <param name="socket">socket对象</param>
         /// <param name="msg">发送的消息</param>
         public static void SendMsg(Socket socket, string msg)
-        {            
+        {
             //将字符串消息转换成字符数组
-            byte[] buffer =Encoding.Default.GetBytes(msg);
+            byte[] buffer = Encoding.Default.GetBytes(msg);
 
             //发送消息
             socket.Send(buffer, buffer.Length, SocketFlags.None);
@@ -445,7 +442,7 @@ namespace NET.Utilities
             //将接收到的数据写入临时缓冲区
             Buffer.BlockCopy(buffer, 0, tempBuffer, 0, receiveCount);
             //转换成字符串，并将其返回
-            return Encoding.Default.GetString(tempBuffer);
+            return Encoding.Default.GetString(tempBuffer); 
         }
         #endregion
 
@@ -495,11 +492,10 @@ namespace NET.Utilities
             email.IsBodyHtml = true;
 
             //创建SMTP客户端，将自动从配置文件中获取SMTP服务器信息
-            SmtpClient smtp = new SmtpClient()
-            {
-                //开启SSL
-                EnableSsl = IsEnableSSL
-            };
+            SmtpClient smtp = new SmtpClient();
+            //开启SSL
+            smtp.EnableSsl = IsEnableSSL;
+
             try
             {
                 //发送电子邮件

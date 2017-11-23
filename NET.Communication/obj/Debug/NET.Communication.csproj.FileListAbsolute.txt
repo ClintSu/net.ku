@@ -7,4 +7,4 @@ D:\CSharp\NET.KU\NET.Communication\bin\Debug\NET.Communication.dll
 D:\CSharp\NET.KU\NET.Communication\bin\Debug\NET.Communication.pdb
 D:\CSharp\NET.KU\NET.Communication\obj\Debug\NET.Communication.dll
 D:\CSharp\NET.KU\NET.Communication\obj\Debug\NET.Communication.pdb
-D:\CSharp\NET.KU\NET.Communication\obj\Debug\NET.Communication.csprojResolveAssemblyReference.cache
+D:\CSharp\NET.KU\NET.Communication\obj\Debug\NET.Communication.csproj.CoreCompileInputs.cache
