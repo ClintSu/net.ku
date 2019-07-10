@@ -92,6 +92,8 @@
     <Compile Include="Extension\WhereIfExtensions.cs" />
     <Compile Include="Html操作类\HtmlHelper.cs" />
     <Compile Include="Html操作类\JavaScriptHelper.cs" />
+    <Compile Include="GlobalProperty.cs" />
+    <Compile Include="Win32Helper.cs" />
     <Compile Include="图片操作\ShellThumbnail.cs" />
     <Compile Include="图片操作\SimilarImage.cs" />
     <Compile Include="INI文件读写类\INIFile.cs" />

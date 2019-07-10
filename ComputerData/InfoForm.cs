@@ -17,6 +17,7 @@ namespace ComputerData
         {
             InitializeComponent();
             this.BtnRead.Focus();
+            BtnRead_Click(null,null);
         }
 
         private void BtnRead_Click(object sender, EventArgs e)
@@ -35,9 +36,9 @@ namespace ComputerData
             strInfo += PadLeftEx("Mac列表", 8, '.') + "|" + ComputerInfo.GetMacByNetworkInterface() + "\n";
             strInfo += PadLeftEx("物理MAC", 8, '.') + "|" + ComputerInfo.GetPhysicsNetworkMac() + "\n";
             
-            var testMD5 = GetMD5Str(ComputerInfo.GetPhysicsNetworkMac() + ComputerInfo.GetMotherBoardId());
+            //var testMD5 = GetMD5Str(ComputerInfo.GetPhysicsNetworkMac() + ComputerInfo.GetMotherBoardId());
 
-            strInfo += @"Mac列表\主板的MD5:" + testMD5;
+            //strInfo += @"Mac列表\主板的MD5:" + testMD5;
 
             this.rtbInfo.Text = strInfo;
 

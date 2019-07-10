@@ -12,7 +12,6 @@ D:\CSharp\NET.KU\NET.UnitTest\bin\Debug\NET.Communication.dll
 D:\CSharp\NET.KU\NET.UnitTest\bin\Debug\NET.Communication.pdb
 D:\CSharp\NET.KU\NET.UnitTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
 D:\CSharp\NET.KU\NET.UnitTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
-D:\CSharp\NET.KU\NET.UnitTest\obj\Debug\NET.UnitTest.csprojResolveAssemblyReference.cache
 D:\CSharp\NET.KU\NET.UnitTest\obj\Debug\NET.UnitTest.dll
 D:\CSharp\NET.KU\NET.UnitTest\obj\Debug\NET.UnitTest.pdb
 D:\CSharp\NET.KU\NET.UnitTest\bin\Debug\ThoughtWorks.QRCode.dll
@@ -35,3 +34,5 @@ D:\CSharp\NET.KU\NET.UnitTest\bin\Debug\Newtonsoft.Json.dll
 D:\CSharp\NET.KU\NET.UnitTest\bin\Debug\zxing.pdb
 D:\CSharp\NET.KU\NET.UnitTest\bin\Debug\Newtonsoft.Json.xml
 D:\CSharp\NET.KU\NET.UnitTest\obj\Debug\NET.UnitTest.csproj.CoreCompileInputs.cache
+D:\CSharp\NET.KU\NET.UnitTest\obj\Debug\NET.UnitTest.csprojAssemblyReference.cache
+D:\CSharp\NET.KU\NET.UnitTest\obj\Debug\NET.UnitTest.csproj.CopyComplete

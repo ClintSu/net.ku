@@ -56,6 +56,7 @@
             this.BtnRead.TabIndex = 1;
             this.BtnRead.Text = "读取";
             this.BtnRead.UseVisualStyleBackColor = true;
+            this.BtnRead.Visible = false;
             this.BtnRead.Click += new System.EventHandler(this.BtnRead_Click);
             // 
             // BtnCopy
