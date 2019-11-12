@@ -186,7 +186,7 @@ namespace NET.Utilities
         /// <param name="sourceDir">源文件</param>
         /// <param name="thumbnailDir">封面图</param>
         /// <param name="ratio">分辨率【3840*2160、2560*1440、1920*1080、1280*720】</param>
-        public void VideoGetPictrue(string sourceDir, string thumbnailDir, string ratio = "1920*1080")
+        public void VideoPictrue(string sourceDir, string thumbnailDir, string ratio = "1920*1080")
         {
             string strArg = $" -i -y {sourceDir} -f image2 -t 0.001 -s {ratio} {thumbnailDir}";
             StartFFmpeg(strArg);
