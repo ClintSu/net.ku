@@ -330,3 +330,9 @@ ASALocalRun/
 # MFractors (Xamarin productivity tool) working folder 
 .mfractor/
 /packages
+/ComputerData/bin
+/NET.Communication/bin
+/NET.Security/bin
+/NET.Start/bin
+/NET.UnitTest/bin
+/NET.Utility/bin
