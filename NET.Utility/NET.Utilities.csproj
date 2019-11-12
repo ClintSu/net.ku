@@ -20,6 +20,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -93,7 +94,9 @@
     <Compile Include="Html操作类\HtmlHelper.cs" />
     <Compile Include="Html操作类\JavaScriptHelper.cs" />
     <Compile Include="GlobalProperty.cs" />
-    <Compile Include="Win32Helper.cs" />
+    <Compile Include="Win32Helper\APIs.cs" />
+    <Compile Include="Win32Helper\Enums.cs" />
+    <Compile Include="Win32Helper\Structs.cs" />
     <Compile Include="图片操作\ShellThumbnail.cs" />
     <Compile Include="图片操作\SimilarImage.cs" />
     <Compile Include="INI文件读写类\INIFile.cs" />
@@ -154,6 +157,7 @@
     <Compile Include="类型转换\ConvertHelper.cs" />
     <Compile Include="缓存\DataCache.cs" />
     <Compile Include="Net\NetTimeHelper.cs" />
+    <Compile Include="视频转换类\ffmpegHelper.cs" />
     <Compile Include="视频转换类\VideoConvert.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
@@ -189,6 +193,50 @@
     <Content Include="Javascript\CommonJS.js" />
     <Content Include="异步线程\线程使用说明.txt" />
     <Content Include="日志\日志使用说明.txt" />
+    <Content Include="视频转换类\ffmpeg-4.2.1\avcodec-58.dll" />
+    <Content Include="视频转换类\ffmpeg-4.2.1\avdevice-58.dll" />
+    <Content Include="视频转换类\ffmpeg-4.2.1\avfilter-7.dll" />
+    <Content Include="视频转换类\ffmpeg-4.2.1\avformat-58.dll" />
+    <Content Include="视频转换类\ffmpeg-4.2.1\avutil-56.dll" />
+    <Content Include="视频转换类\ffmpeg-4.2.1\doc\bootstrap.min.css" />
+    <Content Include="视频转换类\ffmpeg-4.2.1\doc\default.css" />
+    <Content Include="视频转换类\ffmpeg-4.2.1\doc\developer.html" />
+    <Content Include="视频转换类\ffmpeg-4.2.1\doc\faq.html" />
+    <Content Include="视频转换类\ffmpeg-4.2.1\doc\fate.html" />
+    <Content Include="视频转换类\ffmpeg-4.2.1\doc\ffmpeg-all.html" />
+    <Content Include="视频转换类\ffmpeg-4.2.1\doc\ffmpeg-bitstream-filters.html" />
+    <Content Include="视频转换类\ffmpeg-4.2.1\doc\ffmpeg-codecs.html" />
+    <Content Include="视频转换类\ffmpeg-4.2.1\doc\ffmpeg-devices.html" />
+    <Content Include="视频转换类\ffmpeg-4.2.1\doc\ffmpeg-filters.html" />
+    <Content Include="视频转换类\ffmpeg-4.2.1\doc\ffmpeg-formats.html" />
+    <Content Include="视频转换类\ffmpeg-4.2.1\doc\ffmpeg-protocols.html" />
+    <Content Include="视频转换类\ffmpeg-4.2.1\doc\ffmpeg-resampler.html" />
+    <Content Include="视频转换类\ffmpeg-4.2.1\doc\ffmpeg-scaler.html" />
+    <Content Include="视频转换类\ffmpeg-4.2.1\doc\ffmpeg-utils.html" />
+    <Content Include="视频转换类\ffmpeg-4.2.1\doc\ffmpeg.html" />
+    <Content Include="视频转换类\ffmpeg-4.2.1\doc\ffplay-all.html" />
+    <Content Include="视频转换类\ffmpeg-4.2.1\doc\ffplay.html" />
+    <Content Include="视频转换类\ffmpeg-4.2.1\doc\ffprobe-all.html" />
+    <Content Include="视频转换类\ffmpeg-4.2.1\doc\ffprobe.html" />
+    <Content Include="视频转换类\ffmpeg-4.2.1\doc\general.html" />
+    <Content Include="视频转换类\ffmpeg-4.2.1\doc\git-howto.html" />
+    <Content Include="视频转换类\ffmpeg-4.2.1\doc\libavcodec.html" />
+    <Content Include="视频转换类\ffmpeg-4.2.1\doc\libavdevice.html" />
+    <Content Include="视频转换类\ffmpeg-4.2.1\doc\libavfilter.html" />
+    <Content Include="视频转换类\ffmpeg-4.2.1\doc\libavformat.html" />
+    <Content Include="视频转换类\ffmpeg-4.2.1\doc\libavutil.html" />
+    <Content Include="视频转换类\ffmpeg-4.2.1\doc\libswresample.html" />
+    <Content Include="视频转换类\ffmpeg-4.2.1\doc\libswscale.html" />
+    <Content Include="视频转换类\ffmpeg-4.2.1\doc\mailing-list-faq.html" />
+    <Content Include="视频转换类\ffmpeg-4.2.1\doc\nut.html" />
+    <Content Include="视频转换类\ffmpeg-4.2.1\doc\platform.html" />
+    <Content Include="视频转换类\ffmpeg-4.2.1\doc\style.min.css" />
+    <Content Include="视频转换类\ffmpeg-4.2.1\ffmpeg.exe" />
+    <Content Include="视频转换类\ffmpeg-4.2.1\ffplay.exe" />
+    <Content Include="视频转换类\ffmpeg-4.2.1\ffprobe.exe" />
+    <Content Include="视频转换类\ffmpeg-4.2.1\postproc-55.dll" />
+    <Content Include="视频转换类\ffmpeg-4.2.1\swresample-3.dll" />
+    <Content Include="视频转换类\ffmpeg-4.2.1\swscale-5.dll" />
     <Content Include="计划任务\Quartz.NET\quartz_jobs.xml" />
     <Content Include="计划任务\Quartz.NET\Qzuartz使用说明.txt" />
     <Content Include="计划任务\计划任务使用说明.txt" />
