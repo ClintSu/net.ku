@@ -178,7 +178,7 @@ namespace NET.Utilities
         ffmpeg -i in.mp4 -filter:v "crop=in_w:in_h-40" -c:a copy out.mp4
         */
 
-        private static string ffmpegDir = "\\ffmpeg\\ffmpeg.exe";
+        private static string ffmpegDir = "\\ffmpeg-4.2.1\\ffmpeg.exe";
 
         /// <summary>
         /// 视频封面
