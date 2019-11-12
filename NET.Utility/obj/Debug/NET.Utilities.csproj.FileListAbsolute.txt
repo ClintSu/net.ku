@@ -21,3 +21,6 @@ D:\CSharp\NET.KU\NET.Utility\bin\Debug\Newtonsoft.Json.dll
 D:\CSharp\NET.KU\NET.Utility\bin\Debug\Newtonsoft.Json.xml
 D:\CSharp\NET.KU\NET.Utility\obj\Debug\NET.Utilities.csproj.CoreCompileInputs.cache
 D:\CSharp\NET.KU\NET.Utility\obj\Debug\NET.Utilities.csprojResolveAssemblyReference.cache
+D:\Project\net.ku\NET.Utility\obj\Debug\NET.Utilities.csprojAssemblyReference.cache
+D:\Project\net.ku\NET.Utility\obj\Debug\NET.Utilities.dll
+D:\Project\net.ku\NET.Utility\obj\Debug\NET.Utilities.pdb

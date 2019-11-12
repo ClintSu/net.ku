@@ -36,3 +36,6 @@ D:\CSharp\NET.KU\NET.UnitTest\bin\Debug\Newtonsoft.Json.xml
 D:\CSharp\NET.KU\NET.UnitTest\obj\Debug\NET.UnitTest.csproj.CoreCompileInputs.cache
 D:\CSharp\NET.KU\NET.UnitTest\obj\Debug\NET.UnitTest.csprojAssemblyReference.cache
 D:\CSharp\NET.KU\NET.UnitTest\obj\Debug\NET.UnitTest.csproj.CopyComplete
+D:\Project\net.ku\NET.UnitTest\obj\Debug\NET.UnitTest.csprojAssemblyReference.cache
+D:\Project\net.ku\NET.UnitTest\obj\Debug\NET.UnitTest.dll
+D:\Project\net.ku\NET.UnitTest\obj\Debug\NET.UnitTest.pdb

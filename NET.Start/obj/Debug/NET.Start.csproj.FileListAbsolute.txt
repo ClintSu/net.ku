@@ -45,3 +45,9 @@ D:\CSharp\NET.KU\NET.Start\bin\Debug\Newtonsoft.Json.xml
 D:\CSharp\NET.KU\NET.Start\obj\Debug\NET.Start.csproj.CoreCompileInputs.cache
 D:\CSharp\NET.KU\NET.Start\obj\Debug\NET.Start.csprojAssemblyReference.cache
 D:\CSharp\NET.KU\NET.Start\obj\Debug\NET.Start.csproj.CopyComplete
+D:\Project\net.ku\NET.Start\obj\Debug\NET.Start.csprojAssemblyReference.cache
+D:\Project\net.ku\NET.Start\obj\Debug\NET.Start.TestForm.resources
+D:\Project\net.ku\NET.Start\obj\Debug\NET.Start.Properties.Resources.resources
+D:\Project\net.ku\NET.Start\obj\Debug\NET.Start.csproj.GenerateResource.cache
+D:\Project\net.ku\NET.Start\obj\Debug\NET.Start.exe
+D:\Project\net.ku\NET.Start\obj\Debug\NET.Start.pdb

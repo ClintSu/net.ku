@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-E:\CSharp\NET.KU\WpfTools\obj\Debug\
+D:\Project\net.ku\WpfTools\obj\Debug\
 WpfTools
 none
 false
 DEBUG;TRACE
-E:\CSharp\NET.KU\WpfTools\App.xaml
+D:\Project\net.ku\WpfTools\App.xaml
 4639137801
 
-121616047158
+11-1081009014
 13738642453
 Color\ColorDialog.xaml;Color\ColorPicker.xaml;MainWindow.xaml;Shadow\ShadowView.xaml;
 
-True
+False
 

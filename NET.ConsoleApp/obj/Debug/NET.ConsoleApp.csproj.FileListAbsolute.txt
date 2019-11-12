@@ -4,3 +4,8 @@ D:\CSharp\NET.KU\NET.ConsoleApp\obj\Debug\NET.ConsoleApp.exe
 D:\CSharp\NET.KU\NET.ConsoleApp\obj\Debug\NET.ConsoleApp.pdb
 D:\CSharp\NET.KU\NET.ConsoleApp\obj\Debug\NET.ConsoleApp.csproj.CoreCompileInputs.cache
 D:\CSharp\NET.KU\NET.ConsoleApp\obj\Debug\NET.ConsoleApp.csprojAssemblyReference.cache
+D:\Project\net.ku\NET.ConsoleApp\bin\Debug\NET.ConsoleApp.exe
+D:\Project\net.ku\NET.ConsoleApp\bin\Debug\NET.ConsoleApp.pdb
+D:\Project\net.ku\NET.ConsoleApp\obj\Debug\NET.ConsoleApp.csprojAssemblyReference.cache
+D:\Project\net.ku\NET.ConsoleApp\obj\Debug\NET.ConsoleApp.exe
+D:\Project\net.ku\NET.ConsoleApp\obj\Debug\NET.ConsoleApp.pdb
