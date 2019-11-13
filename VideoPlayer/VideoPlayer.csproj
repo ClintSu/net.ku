@@ -1,0 +1,519 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{AA817F57-F5B0-45EA-A76B-9304C99F4884}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>VideoPlayer</RootNamespace>
+    <AssemblyName>VideoPlayer</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Interactivity">
+      <HintPath>..\packages\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Attached\Corner.cs" />
+    <Compile Include="Attached\Hint.cs" />
+    <Compile Include="Attached\Icon.cs" />
+    <Compile Include="Attached\Mouse.cs" />
+    <Compile Include="Attached\TextBoxHelper.cs" />
+    <Compile Include="Attached\WindowCloseBehavior.cs" />
+    <Compile Include="Controls\ButtonChrome.cs" />
+    <Compile Include="Controls\DropDownButton .cs" />
+    <Compile Include="Controls\Loading.cs" />
+    <Compile Include="Controls\PathButton.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\AudioOutputDevice.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Extensions\VlcMediaInstanceExtensions.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\FourCCConverter.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\LibVlcFunctionAttribute.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\MarshalHelper.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Properties\AssemblyInfo.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\InteropObjectInstance.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc.h\libvlc_audio_filter_list_get.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc.h\libvlc_callback_t.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc.h\libvlc_clearerr.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc.h\libvlc_errmsg.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc.h\libvlc_event_attach.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc.h\libvlc_event_detach.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc.h\libvlc_event_type_name.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc.h\libvlc_free.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc.h\libvlc_get_changeset.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc.h\libvlc_get_compiler.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc.h\libvlc_get_version.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc.h\libvlc_log_cb.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc.h\libvlc_log_get_context.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc.h\libvlc_log_level_e.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc.h\libvlc_log_set.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc.h\libvlc_module_description_list_release.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc.h\libvlc_module_description_t.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc.h\libvlc_new.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc.h\libvlc_release.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc.h\libvlc_set_app_id.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc.h\libvlc_set_user_agent.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc.h\libvlc_video_filter_list_get.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_dialog.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_events.h\libvlc_event_e.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_events.h\libvlc_event_t.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media.h\libvlc_media_add_option.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media.h\libvlc_media_add_option_flag.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media.h\libvlc_media_duplicate.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media.h\libvlc_media_event_manager.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media.h\libvlc_media_get_codec_description.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media.h\libvlc_media_get_duration.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media.h\libvlc_media_get_meta.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media.h\libvlc_media_get_mrl.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media.h\libvlc_media_get_state.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media.h\libvlc_media_get_stats.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media.h\libvlc_media_get_tracks_info.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media.h\libvlc_media_is_parsed.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media.h\libvlc_media_new_callbacks.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media.h\libvlc_media_new_fd.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media.h\libvlc_media_new_location.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media.h\libvlc_media_new_path.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media.h\libvlc_media_parse.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media.h\libvlc_media_parse_async.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media.h\libvlc_media_release.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media.h\libvlc_media_save_meta.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media.h\libvlc_media_set_meta.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media.h\libvlc_media_stats_t.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media.h\libvlc_media_tracks_get.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media.h\libvlc_media_track_info_t.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media.h\libvlc_media_track_t.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media.h\libvlc_meta_t.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media.h\libvlc_state_t.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media.h\libvlc_track_type_t.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media_player.h\libvlc_audio_get_channel.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media_player.h\libvlc_audio_get_delay.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media_player.h\libvlc_audio_get_mute.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media_player.h\libvlc_audio_get_track.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media_player.h\libvlc_audio_get_track_count.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media_player.h\libvlc_audio_get_track_description.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media_player.h\libvlc_audio_get_volume.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media_player.h\libvlc_audio_output_channel_t.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media_player.h\libvlc_audio_output_device_count.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media_player.h\libvlc_audio_output_device_id.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media_player.h\libvlc_audio_output_device_list_get.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media_player.h\libvlc_audio_output_device_longname.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media_player.h\libvlc_audio_output_device_set.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media_player.h\libvlc_audio_output_device_t.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media_player.h\libvlc_audio_output_device_types_t.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media_player.h\libvlc_audio_output_list_get.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media_player.h\libvlc_audio_output_list_release.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media_player.h\libvlc_audio_output_set.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media_player.h\libvlc_audio_output_t.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media_player.h\libvlc_audio_set_channel.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media_player.h\libvlc_audio_set_delay.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media_player.h\libvlc_audio_set_mute.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media_player.h\libvlc_audio_set_track.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media_player.h\libvlc_audio_set_volume.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media_player.h\libvlc_audio_toggle_mute.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media_player.h\libvlc_get_fullscreen.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media_player.h\libvlc_media_player_can_pause.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media_player.h\libvlc_media_player_event_manager.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media_player.h\libvlc_media_player_get_chapter.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media_player.h\libvlc_media_player_get_chapter_count.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media_player.h\libvlc_media_player_get_fps.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media_player.h\libvlc_media_player_get_hwnd.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media_player.h\libvlc_media_player_get_length.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media_player.h\libvlc_media_player_get_media.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media_player.h\libvlc_media_player_get_position.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media_player.h\libvlc_media_player_get_rate.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media_player.h\libvlc_media_player_get_state.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media_player.h\libvlc_media_player_get_time.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media_player.h\libvlc_media_player_is_playing.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media_player.h\libvlc_media_player_is_seekable.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media_player.h\libvlc_media_player_navigate.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media_player.h\libvlc_media_player_new.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media_player.h\libvlc_media_player_new_from_media.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media_player.h\libvlc_media_player_next_chapter.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media_player.h\libvlc_media_player_next_frame.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media_player.h\libvlc_media_player_pause.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media_player.h\libvlc_media_player_play.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media_player.h\libvlc_media_player_previous_chapter.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media_player.h\libvlc_media_player_release.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media_player.h\libvlc_media_player_set_chapter.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media_player.h\libvlc_media_player_set_hwnd.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media_player.h\libvlc_media_player_set_media.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media_player.h\libvlc_media_player_set_pause.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media_player.h\libvlc_media_player_set_position.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media_player.h\libvlc_media_player_set_rate.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media_player.h\libvlc_media_player_set_time.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media_player.h\libvlc_media_player_set_video_title_display.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media_player.h\libvlc_media_player_stop.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media_player.h\libvlc_media_player_will_play.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media_player.h\libvlc_navigate_mode_t.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media_player.h\libvlc_position_t.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media_player.h\libvlc_rectangle_t.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media_player.h\libvlc_set_fullscreen.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media_player.h\libvlc_track_description_list_release.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media_player.h\libvlc_track_description_t.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media_player.h\libvlc_video_adjust_option_t.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media_player.h\libvlc_video_cleanup_cb.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media_player.h\libvlc_video_display_cb.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media_player.h\libvlc_video_format_cb.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media_player.h\libvlc_video_get_adjust_float.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media_player.h\libvlc_video_get_adjust_int.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media_player.h\libvlc_video_get_aspect_ratio.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media_player.h\libvlc_video_get_crop_geometry.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media_player.h\libvlc_video_get_logo_int.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media_player.h\libvlc_video_get_marquee_int.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media_player.h\libvlc_video_get_marquee_string.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media_player.h\libvlc_video_get_spu.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media_player.h\libvlc_video_get_spu_count.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media_player.h\libvlc_video_get_spu_delay.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media_player.h\libvlc_video_get_spu_description.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media_player.h\libvlc_video_get_teletext.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media_player.h\libvlc_video_get_track.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media_player.h\libvlc_video_get_track_count.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media_player.h\libvlc_video_get_track_description.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media_player.h\libvlc_video_lock_cb.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media_player.h\libvlc_video_logo_option_t.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media_player.h\libvlc_video_marquee_option_t.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media_player.h\libvlc_video_set_adjust_float.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media_player.h\libvlc_video_set_adjust_int.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media_player.h\libvlc_video_set_aspect_ratio.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media_player.h\libvlc_video_set_callbacks.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media_player.h\libvlc_video_set_crop_geometry.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media_player.h\libvlc_video_set_deinterlace.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media_player.h\libvlc_video_set_format_callbacks.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media_player.h\libvlc_video_set_key_input.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media_player.h\libvlc_video_set_logo_int.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media_player.h\libvlc_video_set_logo_string.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media_player.h\libvlc_video_set_marquee_int.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media_player.h\libvlc_video_set_marquee_string.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media_player.h\libvlc_video_set_mouse_input.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media_player.h\libvlc_video_set_spu.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media_player.h\libvlc_video_set_spu_delay.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media_player.h\libvlc_video_set_teletext.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media_player.h\libvlc_video_set_track.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media_player.h\libvlc_video_take_snapshot.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Signatures\libvlc_media_player.h\libvlc_video_unlock_cb.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\StreamData.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Tracks.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Utf8InteropStringConverter.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Utf8StringHandle.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcEventManagerInstance.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcInstance.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcLibraryLoader.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.AddOptionFlagToMedia.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.AddOptionToMedia.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.AttachEvent.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.ClearLastErrorMessage.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.CloneMedia.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.CouldPlay.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.CreateMediaPlayer.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.CreateMediaPlayerFromMedia.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.CreateNewMediaFromFileDescriptor.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.CreateNewMediaFromLocation.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.CreateNewMediaFromPath.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.CreateNewMediaFromStream.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.DetachEvent.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.Dialogs.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.Free.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.GetAudioChannel.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.GetAudioDelay.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.GetAudioFilterList.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.GetAudioOutputDeviceCount.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.GetAudioOutputDeviceList.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.GetAudioOutputDeviceLongName.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.GetAudioOutputDeviceName.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.GetAudioOutputsDescriptions.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.GetAudioTrack.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.GetAudioTracksCount.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.GetAudioTracksDescriptions.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.GetChangeset.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.GetCodecDescription.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.GetCompiler.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.GetEventTypeName.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.GetFramesPerSecond.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.GetFullScreen.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.GetLastErrorMessage.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.GetLength.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.GetLogContext.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.GetMediaChapter.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.GetMediaChapterCount.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.GetMediaDuration.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.GetMediaEventManager.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.GetMediaFromMediaPlayer.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.GetMediaMeta.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.GetMediaMrl.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.GetMediaPlayerEventManager.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.GetMediaPlayerState.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.GetMediaPlayerVideoHostHandle.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.GetMediaPosition.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.GetMediaState.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.GetMediaStats.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.GetMediaTracks.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.GetMediaTracksInformations.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.GetRate.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.GetTime.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.GetVideoAdjust.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.GetVideoAspectRatio.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.GetVideoCropGeometry.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.GetVideoFilterList.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.GetVideoLogo.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.GetVideoMarquee.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.GetVideoSpu.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.GetVideoSpuCount.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.GetVideoSpuDelay.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.GetVideoSpuDescription.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.GetVideoTeletext.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.GetVideoTrack.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.GetVideoTracksCount.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.GetVideoTracksDescriptions.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.GetVolume.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.IsMute.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.IsParsedMedia.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.IsPausable.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.IsPlaying.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.IsSeekable.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.Navigate.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.NextFrame.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.ParseMedia.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.ParseMediaAsync.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.Pause.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.Play.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.ReleaseInstance.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.ReleaseMedia.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.ReleaseMediaPlayer.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.ReleaseModuleDescriptionInstance.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.ReleaseTrackDescription.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.SaveMediaMetas.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.SetAppId.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.SetAudioChannel.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.SetAudioDelay.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.SetAudioOutput.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.SetAudioOutputDevice.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.SetAudioTrack.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.SetFullScreen.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.SetKeyInput.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.SetLog.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.SetMediaChapter.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.SetMediaMeta.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.SetMediaPlayerVideoHostHandle.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.SetMediaPosition.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.SetMediaToMediaPlayer.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.SetMouseInput.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.SetMute.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.SetNextMediaChapter.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.SetPause.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.SetPreviousMediaChapter.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.SetRate.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.SetTime.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.SetUserAgent.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.SetVideoAdjust.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.SetVideoAspectRatio.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.SetVideoCallbacks.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.SetVideoCropGeometry.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.SetVideoDeinterlace.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.SetVideoFormatCallbacks.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.SetVideoLogo.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.SetVideoMarquee.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.SetVideoSpu.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.SetVideoSpuDelay.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.SetVideoTeletext.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.SetVideoTitleDisplay.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.SetVideoTrack.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.SetVolume.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.Stop.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.TakeSnapshot.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcManager.ToggleMute.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcMediaEventManagerInstance.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcMediaInstance.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcMediaPlayerEventManagerInstance.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\VlcMediaPlayerInstance.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core.Interops\Win32Interops.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core\AdjustmentsManagement.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core\AudioManagement.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core\AudioOutputDescription.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core\AudioOutputsManagement.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core\AudioTracksManagement.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core\ChapterManagement.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core\DialogsManagement.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core\FilterModuleDescription.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core\IAdjustmentsManagement.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core\IAudioManagement.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core\IAudioOutputsManagement.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core\IChapterManagement.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core\IDialogsManagement.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core\IEnumerableManagement.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core\ILogoManagement.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core\IMarqueeManagement.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core\ISubTitlesManagement.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core\ITracksManagement.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core\IVideoManagement.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core\IVlcDialogManager.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core\LogoManagement.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core\MarqueeManagement.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core\SubTitlesManagement.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core\TrackDescription.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core\VideoManagement.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core\VideoTracksManagement.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core\VlcMediaPlayer\VlcMediaPlayer.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core\VlcMediaPlayer\VlcMediaPlayer.Events.AudioDevice.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core\VlcMediaPlayer\VlcMediaPlayer.Events.AudioVolume.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core\VlcMediaPlayer\VlcMediaPlayer.Events.Backward.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core\VlcMediaPlayer\VlcMediaPlayer.Events.Buffering.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core\VlcMediaPlayer\VlcMediaPlayer.Events.ChapterChanged.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core\VlcMediaPlayer\VlcMediaPlayer.Events.Corked.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core\VlcMediaPlayer\VlcMediaPlayer.Events.EncounteredError.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core\VlcMediaPlayer\VlcMediaPlayer.Events.EndReached.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core\VlcMediaPlayer\VlcMediaPlayer.Events.EsAdded.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core\VlcMediaPlayer\VlcMediaPlayer.Events.EsDeleted.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core\VlcMediaPlayer\VlcMediaPlayer.Events.EsSelected.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core\VlcMediaPlayer\VlcMediaPlayer.Events.Forward.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core\VlcMediaPlayer\VlcMediaPlayer.Events.LengthChanged.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core\VlcMediaPlayer\VlcMediaPlayer.Events.Log.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core\VlcMediaPlayer\VlcMediaPlayer.Events.MediaChanged.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core\VlcMediaPlayer\VlcMediaPlayer.Events.Muted.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core\VlcMediaPlayer\VlcMediaPlayer.Events.Opening.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core\VlcMediaPlayer\VlcMediaPlayer.Events.PausableChanged.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core\VlcMediaPlayer\VlcMediaPlayer.Events.Paused.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core\VlcMediaPlayer\VlcMediaPlayer.Events.Playing.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core\VlcMediaPlayer\VlcMediaPlayer.Events.PositionChanged.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core\VlcMediaPlayer\VlcMediaPlayer.Events.ScrambledChanged.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core\VlcMediaPlayer\VlcMediaPlayer.Events.SeekableChanged.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core\VlcMediaPlayer\VlcMediaPlayer.Events.SnapshotTaken.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core\VlcMediaPlayer\VlcMediaPlayer.Events.Stopped.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core\VlcMediaPlayer\VlcMediaPlayer.Events.TimeChanged.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core\VlcMediaPlayer\VlcMediaPlayer.Events.TitleChanged.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core\VlcMediaPlayer\VlcMediaPlayer.Events.Uncorked.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core\VlcMediaPlayer\VlcMediaPlayer.Events.Unmuted.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core\VlcMediaPlayer\VlcMediaPlayer.Events.VideoOutChanged.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core\VlcMediaPlayer\VlcMediaPlayerAudioDeviceEventArgs.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core\VlcMediaPlayer\VlcMediaPlayerAudioVolumeEventArgs.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core\VlcMediaPlayer\VlcMediaPlayerBackwardEventArgs.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core\VlcMediaPlayer\VlcMediaPlayerBufferingEventArgs.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core\VlcMediaPlayer\VlcMediaPlayerChapterChangedEventArgs.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core\VlcMediaPlayer\VlcMediaPlayerEncounteredErrorEventArgs.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core\VlcMediaPlayer\VlcMediaPlayerEndReachedEventArgs.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core\VlcMediaPlayer\VlcMediaPlayerEsChangedEventArgs.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core\VlcMediaPlayer\VlcMediaPlayerForwardEventArgs.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core\VlcMediaPlayer\VlcMediaPlayerLengthChangedEventArgs.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core\VlcMediaPlayer\VlcMediaPlayerLogEventArgs.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core\VlcMediaPlayer\VlcMediaPlayerMediaChangedEventArgs.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core\VlcMediaPlayer\VlcMediaPlayerOpeningEventArgs.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core\VlcMediaPlayer\VlcMediaPlayerPausableChangedEventArgs.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core\VlcMediaPlayer\VlcMediaPlayerPausedEventArgs.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core\VlcMediaPlayer\VlcMediaPlayerPlayingEventArgs.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core\VlcMediaPlayer\VlcMediaPlayerPositionChangedEventArgs.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core\VlcMediaPlayer\VlcMediaPlayerScrambledChangedEventArgs.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core\VlcMediaPlayer\VlcMediaPlayerSeekableChangedEventArgs.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core\VlcMediaPlayer\VlcMediaPlayerSnapshotTakenEventArgs.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core\VlcMediaPlayer\VlcMediaPlayerStoppedEventArgs.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core\VlcMediaPlayer\VlcMediaPlayerTimeChangedEventArgs.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core\VlcMediaPlayer\VlcMediaPlayerTitleChangedEventArgs.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core\VlcMediaPlayer\VlcMediaPlayerVideo.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core\VlcMediaPlayer\VlcMediaPlayerVideoOutChangedEventArgs.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core\VlcMedia\VlcMedia.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core\VlcMedia\VlcMedia.Events.DurationChanged.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core\VlcMedia\VlcMedia.Events.Freed.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core\VlcMedia\VlcMedia.Events.MetaChanged.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core\VlcMedia\VlcMedia.Events.ParsedChanged.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core\VlcMedia\VlcMedia.Events.StateChanged.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core\VlcMedia\VlcMedia.Events.SubItemAdded.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core\VlcMedia\VlcMedia.Events.SubItemTreeAdded.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core\VlcMedia\VlcMedia.Metadatas.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core\VlcMedia\VlcMediaDurationChangedEventArgs.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core\VlcMedia\VlcMediaFreedEventArgs.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core\VlcMedia\VlcMediaMetaChangedEventArgs.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core\VlcMedia\VlcMediaParsedChangedEventArgs.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core\VlcMedia\VlcMediaStateChangedEventArgs.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core\VlcMedia\VlcMediaSubItemAddedEventArgs.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Core\VlcMedia\VlcMediaSubItemTreeAddedEventArgs.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Wpf\VlcControl.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Wpf\VlcVideoSourceProvider.cs" />
+    <Compile Include="Vlc.DotNet\Vlc.DotNet.Wpf\Win32Interop.cs" />
+    <Page Include="Controls\General.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

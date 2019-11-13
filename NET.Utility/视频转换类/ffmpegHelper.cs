@@ -176,10 +176,29 @@ namespace NET.Utilities
 
         // 截去底部40像素高度
         ffmpeg -i in.mp4 -filter:v "crop=in_w:in_h-40" -c:a copy out.mp4
+
+        //视频转码
+        ffmpeg -i out.ogv -vcodec h264 out.mp4
+        ffmpeg -i out.ogv -vcodec mpeg4 out.mp4
+        ffmpeg -i out.ogv -vcodec libxvid out.mp4
+        ffmpeg -i out.mp4 -vcodec wmv1 out.wmv
+        ffmpeg -i out.mp4 -vcodec wmv2 out.wmv
         */
 
-        private static string ffmpegDir = "\\ffmpeg-4.2.1\\ffmpeg.exe";
+        private static string ffmpegDir = "\\ffmpeg\\ffmpeg.exe";
 
+        /// <summary>
+        /// 视频封面
+        /// </summary>
+        /// <param name="sourceDir">源文件</param>
+        /// <param name="thumbnailDir">封面图</param>
+        /// <param name="ratio">转码类型【h264\mpeg4\libxvid\wmv1\wmv2】</param>
+        public void VideoConvert(string sourceDir, string targetDir, string encoding = "h264")
+        {
+            string strArg = $" -i {sourceDir} -vcodec {encoding} {targetDir}";
+            StartFFmpeg(strArg);
+            System.Threading.Thread.Sleep(1000);
+        }
         /// <summary>
         /// 视频封面
         /// </summary>

@@ -1,0 +1,424 @@
+﻿<Window
+    x:Class="VideoPlayer.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:control="clr-namespace:VideoPlayer.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:VideoPlayer"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:wpf="clr-namespace:Vlc.DotNet.Wpf"
+    Title="MainWindow"
+    MinWidth="640"
+    MinHeight="360"
+    AllowsTransparency="True"
+    BorderThickness="1"
+    Foreground="#BBBBBB"
+    ResizeMode="CanResizeWithGrip"
+    WindowStartupLocation="CenterScreen"
+    WindowState="Normal"
+    WindowStyle="None"
+    mc:Ignorable="d">
+
+    <Window.Resources>
+        <Style x:Key="TopButton" TargetType="{x:Type control:PathButton}">
+            <Setter Property="AllowsAnimation" Value="False" />
+            <Setter Property="Width" Value="30" />
+            <Setter Property="Height" Value="30" />
+            <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type control:PathButton}">
+                        <Border
+                            Width="{TemplateBinding Width}"
+                            Height="{TemplateBinding Height}"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+                            <Grid Background="Transparent">
+                                <Path
+                                    Name="path"
+                                    Margin="9"
+                                    Data="{TemplateBinding PathData}"
+                                    Fill="{TemplateBinding Foreground}"
+                                    Stretch="Uniform" />
+                            </Grid>
+                        </Border>
+
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Foreground" Value="#F5D413" />
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="path" Property="Opacity" Value="0.6" />
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter TargetName="path" Property="Opacity" Value="0.5" />
+                            </Trigger>
+                            <MultiTrigger>
+                                <MultiTrigger.Conditions>
+                                    <Condition Property="IsMouseOver" Value="True" />
+                                    <Condition Property="AllowsAnimation" Value="True" />
+                                </MultiTrigger.Conditions>
+                                <MultiTrigger.EnterActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation
+                                                Storyboard.TargetName="transIcon"
+                                                Storyboard.TargetProperty="Angle"
+                                                To="180"
+                                                Duration="0:0:0.15" />
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </MultiTrigger.EnterActions>
+                                <MultiTrigger.ExitActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation
+                                                Storyboard.TargetName="transIcon"
+                                                Storyboard.TargetProperty="Angle"
+                                                To="0"
+                                                Duration="0:0:0.15" />
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </MultiTrigger.ExitActions>
+                            </MultiTrigger>
+                        </ControlTemplate.Triggers>
+
+
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="VideoButton" TargetType="{x:Type control:PathButton}">
+            <Setter Property="AllowsAnimation" Value="False" />
+            <Setter Property="Width" Value="15" />
+            <Setter Property="Height" Value="15" />
+            <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type control:PathButton}">
+                        <Border
+                            Width="{TemplateBinding Width}"
+                            Height="{TemplateBinding Height}"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+                            <Grid Background="Transparent">
+                                <Path
+                                    Name="path"
+                                    Margin="2"
+                                    Data="{TemplateBinding PathData}"
+                                    Fill="{TemplateBinding Foreground}"
+                                    Stretch="Uniform" />
+                            </Grid>
+                        </Border>
+
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Foreground" Value="#F5D413" />
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="path" Property="Opacity" Value="0.6" />
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter TargetName="path" Property="Opacity" Value="0.5" />
+                            </Trigger>
+                            <MultiTrigger>
+                                <MultiTrigger.Conditions>
+                                    <Condition Property="IsMouseOver" Value="True" />
+                                    <Condition Property="AllowsAnimation" Value="True" />
+                                </MultiTrigger.Conditions>
+                                <MultiTrigger.EnterActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation
+                                                Storyboard.TargetName="transIcon"
+                                                Storyboard.TargetProperty="Angle"
+                                                To="180"
+                                                Duration="0:0:0.15" />
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </MultiTrigger.EnterActions>
+                                <MultiTrigger.ExitActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation
+                                                Storyboard.TargetName="transIcon"
+                                                Storyboard.TargetProperty="Angle"
+                                                To="0"
+                                                Duration="0:0:0.15" />
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </MultiTrigger.ExitActions>
+                            </MultiTrigger>
+                        </ControlTemplate.Triggers>
+
+
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="BottomButton" TargetType="{x:Type control:PathButton}">
+            <Setter Property="AllowsAnimation" Value="False" />
+            <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+            <Setter Property="Width" Value="40" />
+            <Setter Property="Height" Value="40" />
+            <Setter Property="BorderBrush" Value="#101010" />
+            <Setter Property="BorderThickness" Value="0,0,1,0" />
+            <Setter Property="Foreground" Value="#FFFFFF" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type control:PathButton}">
+                        <Border
+                            Width="{TemplateBinding Width}"
+                            Height="{TemplateBinding Height}"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+
+                            <Grid x:Name="grid" Background="#1E1E1E">
+                                <Path
+                                    Name="path"
+                                    Margin="15"
+                                    Data="{TemplateBinding PathData}"
+                                    Fill="{TemplateBinding Foreground}"
+                                    Stretch="Uniform" />
+                            </Grid>
+                        </Border>
+
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="grid" Property="Background" Value="#272727" />
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="path" Property="Opacity" Value="0.6" />
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter TargetName="path" Property="Opacity" Value="0.5" />
+                            </Trigger>
+                            <MultiTrigger>
+                                <MultiTrigger.Conditions>
+                                    <Condition Property="IsMouseOver" Value="True" />
+                                    <Condition Property="AllowsAnimation" Value="True" />
+                                </MultiTrigger.Conditions>
+                                <MultiTrigger.EnterActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation
+                                                Storyboard.TargetName="transIcon"
+                                                Storyboard.TargetProperty="Angle"
+                                                To="180"
+                                                Duration="0:0:0.15" />
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </MultiTrigger.EnterActions>
+                                <MultiTrigger.ExitActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation
+                                                Storyboard.TargetName="transIcon"
+                                                Storyboard.TargetProperty="Angle"
+                                                To="0"
+                                                Duration="0:0:0.15" />
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </MultiTrigger.ExitActions>
+                            </MultiTrigger>
+                        </ControlTemplate.Triggers>
+
+
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+    <Border BorderBrush="#101010" BorderThickness="1,2">
+        <Grid>
+            <wpf:VlcControl
+                x:Name="VlcControl"
+                Margin="0,35,0,60"
+                Background="#101010"
+                PreviewMouseDoubleClick="VlcControl_PreviewMouseDoubleClick" />
+            <Grid
+                Name="TopMenu"
+                Height="35"
+                VerticalAlignment="Top"
+                Background="#01FFFFFF"
+                MouseMove="TopMenu_MouseMove">
+                <Grid Name="Menu" Background="#101010">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="120" />
+                        <ColumnDefinition Width="2" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="2" />
+                        <ColumnDefinition Width="160" />
+                    </Grid.ColumnDefinitions>
+                    <Grid Background="#1E1E1E">
+                        <!--<control:DropDownButton
+                            Width="100"
+                            Height="35"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center"
+                            Background="Transparent"
+                            Content="VideoPlayer"
+                            Foreground="#EEEEEE" />-->
+
+                        <TextBlock
+                            Margin="10,0"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center"
+                            FontSize="16"
+                            Text="VideoPlayer" />
+                    </Grid>
+                    <Grid Grid.Column="2" Background="#1E1E1E" />
+                    <Grid Grid.Column="4" Background="#1E1E1E">
+                        <StackPanel Orientation="Horizontal">
+                            <control:PathButton
+                                x:Name="BtnTopmost"
+                                Margin="5,3"
+                                Click="BtnTopmost_Click"
+                                PathData="M788.9 635.2c0 8.3-3 15.6-9.1 21.6-6.1 6.1-13.3 9.1-21.6 9.1H551.9l-24.6 232.3c-0.6 3.8-2.3 7.2-5.1 9.8-2.7 2.7-6 4-9.8 4h-0.5c-8.7 0-13.8-4.3-15.4-12.9L460 665.9H265.8c-8.3 0-15.6-3-21.6-9.1-6.1-6.1-9.1-13.3-9.1-21.6 0-39.4 12.5-74.9 37.7-106.5 25.2-31.5 53.6-47.3 85.3-47.3V235.2c-16.7 0-31-6.1-43.3-18.3-12.1-12.1-18.3-26.6-18.3-43.3s6.1-31 18.3-43.3c12.1-12.1 26.6-18.3 43.3-18.3h307.7c16.7 0 31 6.1 43.3 18.3 12.1 12.2 18.3 26.6 18.3 43.3s-6.1 31-18.3 43.3-26.6 18.3-43.3 18.3v246.1c31.7 0 60.2 15.8 85.3 47.3 25.2 31.6 37.8 67.1 37.8 106.6zM465.8 465.9V250.5c0-4.4-1.4-8.2-4.3-11-2.9-2.9-6.6-4.3-11-4.3s-8.2 1.4-11 4.3c-2.9 2.9-4.3 6.6-4.3 11v215.4c0 4.4 1.4 8.2 4.3 11 2.9 2.9 6.6 4.3 11 4.3s8.2-1.4 11-4.3c2.8-2.8 4.3-6.5 4.3-11z"
+                                Style="{StaticResource TopButton}"
+                                Visibility="Visible" />
+                            <control:PathButton
+                                x:Name="BtnNoTopmost"
+                                Margin="5,3"
+                                Click="BtnNoTopmost_Click"
+                                PathData="M43.072 974.72l380.864-301.952 151.936 161.6c0 0 63.424 17.28 67.328-30.72l-3.904-163.584 225.088-259.648 98.048-5.696c0 0 76.928-15.488 21.184-82.752l-275.072-276.928c0 0-74.944-9.6-69.248 59.584l0 75.008L383.552 367.104 225.856 376.64c0 0-57.728 19.2-36.608 69.248l148.16 146.176L43.072 974.72 43.072 974.72z"
+                                Style="{StaticResource TopButton}"
+                                Visibility="Collapsed" />
+                            <control:PathButton
+                                x:Name="BtnMin"
+                                Margin="5,3"
+                                Click="BtnMin_Click"
+                                PathData="M128 448h768v128H128z"
+                                Style="{StaticResource TopButton}"
+                                Visibility="Visible" />
+                            <control:PathButton
+                                x:Name="BtnMax"
+                                Margin="5,3"
+                                PathData="M860 212v600H164V212h696m100-100H64v800h896V112z m0 179.5H64v100h896v-100z"
+                                Style="{StaticResource TopButton}"
+                                Visibility="Collapsed" />
+                            <control:PathButton
+                                x:Name="BtnRestore"
+                                Margin="5,3"
+                                PathData="M1086.033752 753.710082 878.220684 753.710082 878.220684 951.774989 878.220684 1021.784509 878.220684 1023.113804 808.211164 1023.113804 808.211164 1021.784509 70.895716 1021.784509 70.895716 1023.113804 0.886196 1023.113804 0.886196 1021.784509 0.886196 951.774989 0.886196 339.413241 0.886196 269.403721 70.895716 269.403721 269.403721 269.403721 269.403721 0.886196 274.277802 0.886196 339.413241 0.886196 1086.033752 0.886196 1151.612289 0.886196 1156.043271 0.886196 1156.043271 683.700563 1156.043271 753.710082 1086.033752 753.710082ZM70.895716 951.774989 808.211164 951.774989 808.211164 753.710082 808.211164 683.700563 808.211164 339.413241 70.895716 339.413241 70.895716 951.774989ZM1086.033752 70.895716 339.413241 70.895716 339.413241 269.403721 808.211164 269.403721 878.220684 269.403721 878.220684 339.413241 878.220684 683.700563 1086.033752 683.700563 1086.033752 70.895716Z"
+                                Style="{StaticResource TopButton}"
+                                Visibility="Collapsed" />
+                            <control:PathButton
+                                x:Name="BtnFull"
+                                Margin="5,3"
+                                Click="BtnFull_Click"
+                                PathData="M733.549304 0l116.434359 116.23452-226.402521 226.40252 57.053835 57.068109 226.459617-226.445342 120.616689 120.41685V0H733.549304zM689.513507 619.855586l-57.068108 57.068109 224.232847 224.232847-122.64362 122.843458h293.676657V729.838022l-114.007751 114.207588-224.190025-224.190024zM338.197775 404.144414l57.068109-57.068109L171.033037 122.843458 293.676657 0H0v294.161978l114.022025-114.207588 224.17575 224.190024zM347.076305 624.294851L120.616689 850.754468 0 730.323343v293.676657h294.161978l-116.420084-116.23452 226.40252-226.40252-57.068109-57.068109z"
+                                Style="{StaticResource TopButton}" />
+                            <control:PathButton
+                                x:Name="BtnNoFull"
+                                Margin="5,3"
+                                Click="BtnNoFull_Click"
+                                PathData="M384 597.333333h-256c-25.6 0-42.666667 17.066667-42.666667 42.666667s17.066667 42.666667 42.666667 42.666667h153.6L17.066667 947.2c-17.066667 17.066667-17.066667 42.666667 0 59.733333 17.066667 17.066667 42.666667 17.066667 59.733333 0L341.333333 742.4v153.6c0 25.6 17.066667 42.666667 42.666667 42.666667s42.666667-17.066667 42.666667-42.666667v-256c0-25.6-17.066667-42.666667-42.666667-42.666667z m358.4 85.333334h153.6c25.6 0 42.666667-17.066667 42.666667-42.666667s-17.066667-42.666667-42.666667-42.666667h-256c-25.6 0-42.666667 17.066667-42.666667 42.666667v256c0 25.6 17.066667 42.666667 42.666667 42.666667s42.666667-17.066667 42.666667-42.666667V742.4l264.533333 264.533333c17.066667 17.066667 42.666667 17.066667 59.733333 0 17.066667-17.066667 17.066667-42.666667 0-59.733333L742.4 682.666667zM640 426.666667h256c25.6 0 42.666667-17.066667 42.666667-42.666667s-17.066667-42.666667-42.666667-42.666667H742.4L1006.933333 76.8c17.066667-17.066667 17.066667-42.666667 0-59.733333-17.066667-17.066667-42.666667-17.066667-59.733333 0L682.666667 281.6V128c0-25.6-17.066667-42.666667-42.666667-42.666667s-42.666667 17.066667-42.666667 42.666667v256c0 25.6 17.066667 42.666667 42.666667 42.666667z m-256-341.333334c-25.6 0-42.666667 17.066667-42.666667 42.666667v153.6L76.8 8.533333C59.733333 0 25.6 0 8.533333 8.533333 0 25.6 0 59.733333 8.533333 76.8L281.6 341.333333H128c-25.6 0-42.666667 17.066667-42.666667 42.666667s17.066667 42.666667 42.666667 42.666667h256c25.6 0 42.666667-17.066667 42.666667-42.666667v-256c0-25.6-17.066667-42.666667-42.666667-42.666667z"
+                                Style="{StaticResource TopButton}"
+                                Visibility="Collapsed" />
+                            <control:PathButton
+                                x:Name="BtnClose"
+                                Margin="5,3"
+                                Click="BtnClose_Click"
+                                PathData="M591.789223 511.392155l415.748224 415.748224a55.940801 55.940801 0 0 1 0 79.179472 55.940801 55.940801 0 0 1-79.179472 0L512.609751 590.571627 96.861526 1006.319851a55.968799 55.968799 0 1 1-79.20747-79.179472L433.40228 511.392155 17.654056 95.64393A55.996798 55.996798 0 0 1 96.861526 16.43646L512.609751 432.184684 928.357975 16.43646a55.996798 55.996798 0 1 1 79.179472 79.20747L591.789223 511.392155z"
+                                Style="{StaticResource TopButton}"
+                                Visibility="Visible" />
+                        </StackPanel>
+                    </Grid>
+                </Grid>
+            </Grid>
+            <TextBlock
+                x:Name="TbMessage"
+                Margin="10,45"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                FontSize="16"
+                FontWeight="Bold"
+                Foreground="#2866BD"
+                Text="" />
+            <Grid
+                Name="BottomFooter"
+                Height="60"
+                VerticalAlignment="Bottom"
+                Background="#01FFFFFF"
+                MouseMove="BottomFooter_MouseMove">
+
+                <Grid Name="Footer" Background="#101010">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="1" />
+                        <RowDefinition Height="2*" />
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0" Background="#1E1E1E">
+                        <StackPanel
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Center"
+                            Orientation="Horizontal">
+                            <control:PathButton
+                                x:Name="BtnVideo"
+                                PathData="M588.780762 3.100237c-8.531196-5.687464-19.906124-2.843732-28.437319 2.843731l-341.247832 238.873483H51.315427c-14.21866 0-25.593587 11.374928-25.593587 22.749855v489.121892c0 14.21866 11.374928 22.749855 25.593587 22.749856h167.780184l344.091564 238.873482c5.687464 2.843732 8.531196 5.687464 14.218659 5.687464 2.843732 0 8.531196 0 11.374928-2.843732 8.531196-2.843732 14.21866-11.374928 14.21866-19.906123V23.00636c0-8.531196-5.687464-17.062392-14.21866-19.906123zM895.903811 227.755059c-14.21866-14.21866-34.124783-14.21866-48.343443 0s-14.21866 36.968515 0 54.030907c48.343443 54.030907 79.624494 130.811669 79.624494 218.967359s-31.281051 162.09272-79.624494 218.967358c-14.21866 14.21866-14.21866 36.968515 0 54.030907 14.21866 14.21866 34.124783 14.21866 48.343443 0 62.562102-68.249566 102.37435-164.936452 102.374349-272.998265s-39.812247-204.748699-102.374349-272.998266z m-108.061814 108.061814c-14.21866-14.21866-34.124783-14.21866-48.343442 0s-14.21866 36.968515 0 54.030906c25.593587 25.593587 42.655979 65.405834 42.655979 108.061814s-14.21866 79.624494-42.655979 108.061813c-14.21866 14.21866-14.21866 36.968515 0 54.030907 14.21866 14.21866 34.124783 14.21866 48.343442 0 39.812247-42.655979 62.562102-99.530618 62.562103-162.09272s-22.749855-125.124205-62.562103-162.09272z"
+                                Style="{StaticResource VideoButton}"
+                                Visibility="Visible" />
+                            <control:PathButton
+                                x:Name="BtnNoVideo"
+                                PathData="M890.216347 514.971984l88.15569 88.15569c14.21866 14.21866 14.21866 39.812247 0 54.030907s-39.812247 14.21866-54.030907 0L836.18544 569.002891l-88.15569 88.15569c-14.21866 14.21866-39.812247 14.21866-54.030906 0s-14.21866-39.812247 0-54.030907l88.15569-88.15569-90.999422-88.15569c-14.21866-14.21866-14.21866-39.812247 0-54.030906s39.812247-14.21866 54.030906 0l88.15569 88.15569 88.15569-88.15569c14.21866-14.21866 39.812247-14.21866 54.030907 0s14.21866 39.812247 0 54.030906l-85.311958 88.15569z m-312.810513-511.871747c-8.531196-5.687464-19.906124-2.843732-28.437319 2.843731l-341.247832 238.873483H39.940499c-14.21866 0-25.593587 11.374928-25.593587 22.749855v489.121892c0 14.21866 11.374928 22.749855 25.593587 22.749856h167.780184l344.091564 238.873482c5.687464 2.843732 8.531196 5.687464 14.21866 5.687464 2.843732 0 8.531196 0 11.374927-2.843732 8.531196-2.843732 14.21866-11.374928 14.21866-19.906123V23.00636c0-8.531196-5.687464-17.062392-14.21866-19.906123z"
+                                Style="{StaticResource VideoButton}"
+                                Visibility="Visible" />
+                        </StackPanel>
+                    </Grid>
+                    <Grid Grid.Row="2" Background="#1E1E1E">
+                        <StackPanel Orientation="Horizontal">
+                            <Border
+                                Margin="5,0,0,0"
+                                Background="#101010"
+                                BorderBrush="#101010"
+                                BorderThickness="1,0,0,0" />
+                            <control:PathButton
+                                x:Name="BtnPlay"
+                                PathData="M893.035 463.821679C839.00765 429.699141 210.584253 28.759328 179.305261 8.854514 139.495634-16.737389 99.686007 17.385148 99.686007 57.194775v909.934329c0 45.496716 42.653172 68.245075 76.775709 48.340262 45.496716-28.435448 676.763657-429.375262 716.573284-454.967165 34.122537-22.748358 34.122537-76.775709 0-96.680522z"
+                                Style="{StaticResource BottomButton}"
+                                Visibility="Visible" />
+                            <control:PathButton
+                                x:Name="BtnSuspend"
+                                PathData="M128 0h253.155556v1024H128V0z m512 0h256v1024h-256V0z"
+                                Style="{StaticResource BottomButton}"
+                                Visibility="Collapsed" />
+                            <control:PathButton
+                                x:Name="BtnStop"
+                                PathData="M258.875 174.5h506.25c46.58203125 0 84.375 37.79296875 84.375 84.375v506.25c0 46.58203125-37.79296875 84.375-84.375 84.375H258.875c-46.58203125 0-84.375-37.79296875-84.375-84.375V258.875c0-46.58203125 37.79296875-84.375 84.375-84.375z"
+                                Style="{StaticResource BottomButton}" />
+                            <control:PathButton
+                                x:Name="BtnPrev"
+                                PathData="M860.340081 157.39268l-499.349889 352.461447 499.349889 352.416422L860.340081 157.39268zM272.949021 157.39268l-117.523647 0 0 704.877869 117.523647 0L272.949021 157.39268z"
+                                Style="{StaticResource BottomButton}" />
+                            <control:PathButton
+                                x:Name="BtnNext"
+                                PathData="M155.527704 861.954347l499.349889-352.416422-499.349889-352.461447L155.527704 861.954347zM742.919788 861.954347l117.523647 0 0-704.877869-117.523647 0L742.919788 861.954347z"
+                                Style="{StaticResource BottomButton}" />
+                            <control:PathButton
+                                x:Name="BtnOpen"
+                                PathData="M465.60011 214.697704c-82.341788 107.890717-164.678157 215.770596-247.025363 323.64867-29.311278 38.416414-1.918202 93.780555 46.408921 93.780555h494.029051c48.32351 0 75.723811-55.364141 46.394472-93.780555-82.329144-107.878073-164.678157-215.756147-247.014526-323.64867-23.356183-30.600916-69.429147-30.600916-92.792555 0zM243.2007 781.05488h493.675033c19.629958 0 60.473927 5.915358 75.826765-17.04707 17.083194-25.53448-1.197521-59.758666-31.90681-59.758665H287.122461c-19.640796 0-60.475733-5.904521-75.844828 17.057906-17.075969 25.525448 1.201134 59.747828 31.923067 59.747829z"
+                                Style="{StaticResource BottomButton}" />
+
+                            <TextBlock
+                                Margin="20,0,0,0"
+                                VerticalAlignment="Center"
+                                Foreground="#FFFFFF"
+                                Text="00:00:00" />
+                            <TextBlock
+                                Margin="5,0"
+                                VerticalAlignment="Center"
+                                Text="/" />
+                            <TextBlock VerticalAlignment="Center" Text="00:00:00" />
+                        </StackPanel>
+                    </Grid>
+
+                </Grid>
+            </Grid>
+        </Grid>
+    </Border>
+</Window>
