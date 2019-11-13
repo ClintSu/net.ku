@@ -93,6 +93,7 @@
             <Setter Property="AllowsAnimation" Value="False" />
             <Setter Property="Width" Value="15" />
             <Setter Property="Height" Value="15" />
+            <Setter Property="Foreground" Value="#FFFFFF" />
             <Setter Property="FocusVisualStyle" Value="{x:Null}" />
             <Setter Property="Template">
                 <Setter.Value>
@@ -354,7 +355,23 @@
                         <RowDefinition Height="2*" />
                     </Grid.RowDefinitions>
                     <Grid Grid.Row="0" Background="#1E1E1E">
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="150" />
+                        </Grid.ColumnDefinitions>
+                        <ProgressBar
+                            Name="progressVideo"
+                            Height="5"
+                            Margin="5,0,10,0"
+                            Background="#101010"
+                            BorderThickness="0"
+                            Foreground="#2866BD"
+                            Maximum="100"
+                            Orientation="Horizontal"
+                            Value="50" />
                         <StackPanel
+                            Grid.Column="1"
                             HorizontalAlignment="Right"
                             VerticalAlignment="Center"
                             Orientation="Horizontal">
@@ -367,7 +384,19 @@
                                 x:Name="BtnNoVideo"
                                 PathData="M890.216347 514.971984l88.15569 88.15569c14.21866 14.21866 14.21866 39.812247 0 54.030907s-39.812247 14.21866-54.030907 0L836.18544 569.002891l-88.15569 88.15569c-14.21866 14.21866-39.812247 14.21866-54.030906 0s-14.21866-39.812247 0-54.030907l88.15569-88.15569-90.999422-88.15569c-14.21866-14.21866-14.21866-39.812247 0-54.030906s39.812247-14.21866 54.030906 0l88.15569 88.15569 88.15569-88.15569c14.21866-14.21866 39.812247-14.21866 54.030907 0s14.21866 39.812247 0 54.030906l-85.311958 88.15569z m-312.810513-511.871747c-8.531196-5.687464-19.906124-2.843732-28.437319 2.843731l-341.247832 238.873483H39.940499c-14.21866 0-25.593587 11.374928-25.593587 22.749855v489.121892c0 14.21866 11.374928 22.749855 25.593587 22.749856h167.780184l344.091564 238.873482c5.687464 2.843732 8.531196 5.687464 14.21866 5.687464 2.843732 0 8.531196 0 11.374927-2.843732 8.531196-2.843732 14.21866-11.374928 14.21866-19.906123V23.00636c0-8.531196-5.687464-17.062392-14.21866-19.906123z"
                                 Style="{StaticResource VideoButton}"
-                                Visibility="Visible" />
+                                Visibility="Collapsed" />
+
+                            <ProgressBar
+                                Name="progressVolume"
+                                Width="100"
+                                Height="4"
+                                Margin="5,0,10,0"
+                                Background="#101010"
+                                BorderThickness="0"
+                                Foreground="#FFe09938"
+                                Maximum="100"
+                                Orientation="Horizontal"
+                                Value="50" />
                         </StackPanel>
                     </Grid>
                     <Grid Grid.Row="2" Background="#1E1E1E">
