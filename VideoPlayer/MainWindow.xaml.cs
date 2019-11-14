@@ -35,10 +35,19 @@ namespace VideoPlayer
         [DllImport("user32.dll", CharSet = CharSet.Auto)]
         public static extern bool GetCursorPos(out POINT pt);
 
+        #region 字段、属性
+
         private bool isMax = false;
         double menuLineY = 0;
         double footerLineY = 0;
+        double videoListX = 0;
+        double videoListY1 = 0;
+        double videoListY2 = 0;
+        #endregion
 
+        /// <summary>
+        /// 构造
+        /// </summary>
         public MainWindow()
         {
             InitializeComponent();
@@ -61,17 +70,11 @@ namespace VideoPlayer
 
             this.Loaded += MainWindow_Loaded;
         }
-
-        private void MediaPlayer_TimeChanged(object sender, Vlc.DotNet.Core.VlcMediaPlayerTimeChangedEventArgs e)
-        {
-            var t = e.NewTime;
-        }
-
-        private void MediaPlayer_AudioVolume(object sender, Vlc.DotNet.Core.VlcMediaPlayerAudioVolumeEventArgs e)
-        {
-            //throw new NotImplementedException();
-        }
-
+        /// <summary>
+        /// 初始化
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
             //var t1=this.Height;
@@ -81,9 +84,21 @@ namespace VideoPlayer
             //footer_height = this.BottomFooter.Height;
             menuLineY = this.TopMenu.Height;
             footerLineY = SystemParameters.PrimaryScreenHeight - this.TopMenu.Height;
+            videoListX = SystemParameters.PrimaryScreenWidth - this.VideoList.Width;
+            videoListY1 = this.TopMenu.Height + 50;
+            videoListY2 = SystemParameters.PrimaryScreenHeight - this.TopMenu.Height - 50;
+        }
 
+        #region 全屏鼠标移动显示
 
-            var tt = this.VlcControl.SourceProvider.MediaPlayer.Time;
+        private void MediaPlayer_TimeChanged(object sender, Vlc.DotNet.Core.VlcMediaPlayerTimeChangedEventArgs e)
+        {
+            var t = e.NewTime;
+        }
+
+        private void MediaPlayer_AudioVolume(object sender, Vlc.DotNet.Core.VlcMediaPlayerAudioVolumeEventArgs e)
+        {
+            //throw new NotImplementedException();
         }
 
         private void TopMenu_MouseMove(object sender, System.Windows.Input.MouseEventArgs e)
@@ -177,6 +192,52 @@ namespace VideoPlayer
 
         }
 
+        private void RightVideoList_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (!isMax) return;
+            Point pt = e.GetPosition(this);
+            if (pt.X >= videoListX && pt.Y >= videoListY1 && pt.Y <= videoListY2)
+            {
+                if (this.VideoList.Visibility == Visibility.Collapsed)
+                {
+                    this.VideoList.Visibility = Visibility.Visible;
+                    Task.Factory.StartNew(() => { VideoTimeMouse(); });
+                }
+            }
+            else
+            {
+                this.VideoList.Visibility = Visibility.Collapsed;
+            }
+        }
+        protected void VideoTimeMouse()
+        {
+            POINT mouse = new POINT();
+            while (isMax)
+            {
+                try
+                {
+                    GetCursorPos(out mouse);
+                    if (mouse.X >= videoListX && mouse.Y >= videoListY1 && mouse.Y <= videoListY2)
+                    {
+                        System.Threading.Thread.Sleep(500);
+                    }
+                    else
+                    {
+                        this.Dispatcher.Invoke(new Action(() => { this.VideoList.Visibility = Visibility.Collapsed; }));
+                        break;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+
+        }
+        #endregion
+
+        #region 菜单栏
+
         private void BtnTopmost_Click(object sender, RoutedEventArgs e)
         {
             this.isMax = false;
@@ -215,8 +276,10 @@ namespace VideoPlayer
             this.WindowState = WindowState.Maximized;
 
             this.VlcControl.Margin = new Thickness(0);
+            this.RightVideoList.Margin = new Thickness(0);
             this.Menu.Visibility = Visibility.Collapsed;
             this.Footer.Visibility = Visibility.Collapsed;
+            this.VideoList.Visibility = Visibility.Collapsed;
 
             ShowTipMessage("全屏 最前端");
         }
@@ -228,9 +291,11 @@ namespace VideoPlayer
             this.BtnNoFull.Visibility = Visibility.Collapsed;
             this.WindowState = WindowState.Normal;
 
-            this.VlcControl.Margin = new Thickness(0, 35, 0, 60);
+            this.VlcControl.Margin = new Thickness(0, 35, 300, 60);
+            this.RightVideoList.Margin = new Thickness(0, 35, 0, 60);
             this.Menu.Visibility = Visibility.Visible;
             this.Footer.Visibility = Visibility.Visible;
+            this.VideoList.Visibility = Visibility.Visible;
 
             ShowTipMessage("全屏 关闭");
         }
@@ -239,52 +304,9 @@ namespace VideoPlayer
         {   
             this.Close();
         }
+        #endregion
 
-        /// <summary>
-        /// 显示提示信息
-        /// </summary>
-        /// <param name="tipMessage"></param>
-        private void ShowTipMessage(string tipMessage)
-        {
-            this.TbMessage.Visibility = Visibility.Visible;
-            this.TbMessage.Text = tipMessage;
-            Task.Factory.StartNew(() =>
-            {
-                try
-                {
-                    System.Threading.Thread.Sleep(2000);
-                    this.Dispatcher.Invoke(new Action(() =>
-                    {
-                        this.TbMessage.Visibility = Visibility.Collapsed;
-                    }));
-                }
-                catch (Exception ex)
-                {
-                    //shengqin.Common.LogHelper.WriteLog(ex.Message, ex);
-                }
-            });
-        }
-
-        protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)
-        {
-            base.OnMouseLeftButtonDown(e);
-            if (e.ButtonState == MouseButtonState.Pressed)
-            {
-                this.DragMove();
-            }
-        }
-
-        private void VlcControl_PreviewMouseDoubleClick(object sender, MouseButtonEventArgs e)
-        {
-            if (isMax)
-            {
-                BtnNoFull_Click(null, null);
-            }
-            else
-            {
-                BtnFull_Click(null, null);
-            }
-        }
+        #region 左下工具栏
 
         private void BtnPlay_Click(object sender, RoutedEventArgs e)
         {
@@ -326,6 +348,95 @@ namespace VideoPlayer
         private void BtnOpen_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        #endregion
+
+        #region 右下工具栏
+
+        private void BtnCutPicture_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnCutVideo_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnSetting_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnVideoList_Click(object sender, RoutedEventArgs e)
+        {
+            if (this.VideoList.Visibility == Visibility.Collapsed)
+            {
+                this.VideoList.Visibility = Visibility.Visible;
+                this.VlcControl.Margin = new Thickness(0, 35, 300, 60);
+            }
+            else
+            {
+                this.VideoList.Visibility = Visibility.Collapsed;
+                this.VlcControl.Margin = new Thickness(0);
+            }
+        }
+        #endregion
+
+        /// <summary>
+        /// 显示提示信息
+        /// </summary>
+        /// <param name="tipMessage"></param>
+        private void ShowTipMessage(string tipMessage)
+        {
+            this.TbMessage.Visibility = Visibility.Visible;
+            this.TbMessage.Text = tipMessage;
+            Task.Factory.StartNew(() =>
+            {
+                try
+                {
+                    System.Threading.Thread.Sleep(2000);
+                    this.Dispatcher.Invoke(new Action(() =>
+                    {
+                        this.TbMessage.Visibility = Visibility.Collapsed;
+                    }));
+                }
+                catch (Exception ex)
+                {
+                    //shengqin.Common.LogHelper.WriteLog(ex.Message, ex);
+                }
+            });
+        }
+
+        /// <summary>
+        /// 双击全屏、退出全屏
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void VlcControl_PreviewMouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (isMax)
+            {
+                BtnNoFull_Click(null, null);
+            }
+            else
+            {
+                BtnFull_Click(null, null);
+            }
+        }
+
+        /// <summary>
+        /// 移动窗体
+        /// </summary>
+        /// <param name="e"></param>
+        protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)
+        {
+            base.OnMouseLeftButtonDown(e);
+            if (e.ButtonState == MouseButtonState.Pressed)
+            {
+                this.DragMove();
+            }
         }
     }
 }
