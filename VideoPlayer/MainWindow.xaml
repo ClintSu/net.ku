@@ -241,6 +241,7 @@
                 Margin="0,35,0,60"
                 Background="#101010"
                 PreviewMouseDoubleClick="VlcControl_PreviewMouseDoubleClick" />
+            <!--  上 菜单栏  -->
             <Grid
                 Name="TopMenu"
                 Height="35"
@@ -332,22 +333,13 @@
                     </Grid>
                 </Grid>
             </Grid>
-            <TextBlock
-                x:Name="TbMessage"
-                Margin="10,45"
-                HorizontalAlignment="Left"
-                VerticalAlignment="Top"
-                FontSize="16"
-                FontWeight="Bold"
-                Foreground="#2866BD"
-                Text="" />
+            <!--  下 工具栏  -->
             <Grid
                 Name="BottomFooter"
                 Height="60"
                 VerticalAlignment="Bottom"
                 Background="#01FFFFFF"
                 MouseMove="BottomFooter_MouseMove">
-
                 <Grid Name="Footer" Background="#101010">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*" />
@@ -513,6 +505,43 @@
 
                 </Grid>
             </Grid>
+            <!--  右 视频列表  -->
+            <Grid
+                Name="RightVideoList"
+                Width="300"
+                HorizontalAlignment="Right"
+                Background="#01FFFFFF">
+                <Grid Name="VideoList" Background="#101010">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="35" />
+                        <RowDefinition Height="1" />
+                        <RowDefinition Height="2*" />
+                        <RowDefinition Height="1" />
+                        <RowDefinition Height="60" />
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0" Background="#1E1E1E">
+                        <TextBlock
+                            Margin="10,0,0,0"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center"
+                            FontSize="16"
+                            Text="播放列表" />
+                    </Grid>
+
+                    <Grid Grid.Row="2" Background="#1E1E1E" />
+                    <Grid Grid.Row="4" Background="#1E1E1E" />
+                </Grid>
+            </Grid>
+            <!--  左 状态显示  -->
+            <TextBlock
+                x:Name="TbMessage"
+                Margin="10,45"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                FontSize="16"
+                FontWeight="Bold"
+                Foreground="#2866BD"
+                Text="" />
         </Grid>
     </Border>
 </Window>
