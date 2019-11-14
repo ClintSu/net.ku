@@ -52,7 +52,24 @@ namespace VideoPlayer
             this.VlcControl.SourceProvider.MediaPlayer.Play(new Uri(@"D:\vue\vue\Vue高级实战-移动端音乐WebApp\第一章 课程内容介绍\1-1导学.mp4"));
             //this.VlcControl.SourceProvider.MediaPlayer.Play(new Uri("http://download.blender.org/peach/bigbuckbunny_movies/big_buck_bunny_480p_surround-fix.avi"));
 
+            this.BtnPlay.Visibility = Visibility.Collapsed;
+            this.BtnSuspend.Visibility = Visibility.Visible;
+
+            this.VlcControl.SourceProvider.MediaPlayer.AudioVolume += MediaPlayer_AudioVolume;
+            this.VlcControl.SourceProvider.MediaPlayer.TimeChanged += MediaPlayer_TimeChanged;
+
+
             this.Loaded += MainWindow_Loaded;
+        }
+
+        private void MediaPlayer_TimeChanged(object sender, Vlc.DotNet.Core.VlcMediaPlayerTimeChangedEventArgs e)
+        {
+            var t = e.NewTime;
+        }
+
+        private void MediaPlayer_AudioVolume(object sender, Vlc.DotNet.Core.VlcMediaPlayerAudioVolumeEventArgs e)
+        {
+            //throw new NotImplementedException();
         }
 
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
@@ -64,6 +81,9 @@ namespace VideoPlayer
             //footer_height = this.BottomFooter.Height;
             menuLineY = this.TopMenu.Height;
             footerLineY = SystemParameters.PrimaryScreenHeight - this.TopMenu.Height;
+
+
+            var tt = this.VlcControl.SourceProvider.MediaPlayer.Time;
         }
 
         private void TopMenu_MouseMove(object sender, System.Windows.Input.MouseEventArgs e)
@@ -264,6 +284,48 @@ namespace VideoPlayer
             {
                 BtnFull_Click(null, null);
             }
+        }
+
+        private void BtnPlay_Click(object sender, RoutedEventArgs e)
+        {
+            if(!this.VlcControl.SourceProvider.MediaPlayer.IsPlaying())
+            {
+                this.VlcControl.SourceProvider.MediaPlayer.Play();
+                this.BtnPlay.Visibility = Visibility.Collapsed;
+                this.BtnSuspend.Visibility = Visibility.Visible;
+            }
+               
+        }
+
+        private void BtnSuspend_Click(object sender, RoutedEventArgs e)
+        {
+            if (this.VlcControl.SourceProvider.MediaPlayer.IsPlaying())
+            {
+                this.VlcControl.SourceProvider.MediaPlayer.Pause();
+                this.BtnPlay.Visibility = Visibility.Visible;
+                this.BtnSuspend.Visibility = Visibility.Collapsed;
+            }
+                
+        }
+
+        private void BtnStop_Click(object sender, RoutedEventArgs e)
+        {
+            //this.VlcControl.SourceProvider.MediaPlayer
+        }
+
+        private void BtnPrev_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnNext_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnOpen_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
