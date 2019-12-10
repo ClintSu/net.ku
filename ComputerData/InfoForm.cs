@@ -15,6 +15,9 @@ namespace ComputerData
     {
         public InfoForm()
         {
+            GetDotNetVersion.Get45PlusFromRegistry();
+            GetDotNetVersion.GetVersionFromRegistry();
+
             InitializeComponent();
             this.BtnRead.Focus();
             BtnRead_Click(null,null);
