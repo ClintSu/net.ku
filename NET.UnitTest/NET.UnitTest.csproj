@@ -56,10 +56,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\NET.Communication\NET.Communication.csproj">
-      <Project>{2e7346a6-39b0-43bb-a455-966821b20341}</Project>
-      <Name>NET.Communication</Name>
-    </ProjectReference>
     <ProjectReference Include="..\NET.Utility\NET.Utilities.csproj">
       <Project>{1bdcd9aa-7007-4c31-b98e-4a7aef959eba}</Project>
       <Name>NET.Utilities</Name>
