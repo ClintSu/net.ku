@@ -94,9 +94,11 @@
     <Compile Include="Html操作类\HtmlHelper.cs" />
     <Compile Include="Html操作类\JavaScriptHelper.cs" />
     <Compile Include="GlobalProperty.cs" />
+    <Compile Include="SignApi.cs" />
     <Compile Include="Win32Helper\APIs.cs" />
     <Compile Include="Win32Helper\Enums.cs" />
     <Compile Include="Win32Helper\Structs.cs" />
+    <Compile Include="接口加密\Base64Helper.cs" />
     <Compile Include="图片操作\ShellThumbnail.cs" />
     <Compile Include="图片操作\SimilarImage.cs" />
     <Compile Include="INI文件读写类\INIFile.cs" />
@@ -122,6 +124,7 @@
     <Compile Include="异步线程\ManagedThreadPool.cs" />
     <Compile Include="弹出消息类\MessageBox.cs" />
     <Compile Include="弹出消息类\ShowMessage.cs" />
+    <Compile Include="接口加密\MD5Helper.cs" />
     <Compile Include="日历\CNDate.cs" />
     <Compile Include="时间操作类\DateFormat.cs" />
     <Compile Include="时间操作类\TimeHelper.cs" />
