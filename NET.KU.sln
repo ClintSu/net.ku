@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29324.140
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31612.314
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NET.Start", "NET.Start\NET.Start.csproj", "{507DB4CB-9413-47A8-BBA8-5F59B18F6DE0}"
 EndProject
@@ -28,6 +28,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RsaKeyCreate", "RsaKeyCreate\RsaKeyCreate.csproj", "{8A994C8E-AD72-43F2-A575-CDA465341855}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VideoPlayer", "VideoPlayer\VideoPlayer.csproj", "{AA817F57-F5B0-45EA-A76B-9304C99F4884}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NET.Utils", "NET.Utils\NET.Utils.csproj", "{06B85413-CDF2-4C57-9F65-CEF30959BABE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NET.Utils.TestProject", "NET.Utils.TestProject\NET.Utils.TestProject.csproj", "{EE35541E-3405-4450-88B9-190FD435EDC8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -71,6 +75,14 @@ Global
 		{AA817F57-F5B0-45EA-A76B-9304C99F4884}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AA817F57-F5B0-45EA-A76B-9304C99F4884}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AA817F57-F5B0-45EA-A76B-9304C99F4884}.Release|Any CPU.Build.0 = Release|Any CPU
+		{06B85413-CDF2-4C57-9F65-CEF30959BABE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06B85413-CDF2-4C57-9F65-CEF30959BABE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06B85413-CDF2-4C57-9F65-CEF30959BABE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06B85413-CDF2-4C57-9F65-CEF30959BABE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE35541E-3405-4450-88B9-190FD435EDC8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE35541E-3405-4450-88B9-190FD435EDC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE35541E-3405-4450-88B9-190FD435EDC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE35541E-3405-4450-88B9-190FD435EDC8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -85,6 +97,8 @@ Global
 		{2261BAE1-0E84-495F-B789-0162602CB759} = {13F122C4-2CF8-4478-B9B9-CD8B2B4828DD}
 		{8A994C8E-AD72-43F2-A575-CDA465341855} = {13F122C4-2CF8-4478-B9B9-CD8B2B4828DD}
 		{AA817F57-F5B0-45EA-A76B-9304C99F4884} = {13F122C4-2CF8-4478-B9B9-CD8B2B4828DD}
+		{06B85413-CDF2-4C57-9F65-CEF30959BABE} = {BEA373DF-39E8-4895-A496-B584553F55E1}
+		{EE35541E-3405-4450-88B9-190FD435EDC8} = {BB7468C4-A774-42BA-9500-1412288188BB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {554E80D2-DCDB-43BE-92E3-4EA20A905FE2}
